@@ -1,0 +1,24 @@
+/* ═══════════════════════════════════
+   EDUCATION
+   책임 : 학력 카드 스타일
+═══════════════════════════════════ */
+.edu-card {
+  max-width: 680px; background: var(--card); border-radius: var(--radius);
+  padding: 40px 48px; box-shadow: 0 8px 32px var(--shadow);
+  border: 1px solid rgba(255,255,255,0.85);
+  display: flex; align-items: center; gap: 32px;
+  will-change: transform;
+  transition: box-shadow var(--transition);
+}
+.edu-card:hover { box-shadow: 0 20px 52px var(--shadow-strong); }
+.edu-icon {
+  font-size: 48px; flex-shrink: 0; width: 80px; height: 80px;
+  background: rgba(58,159,213,0.08); border-radius: 20px;
+  display: flex; align-items: center; justify-content: center;
+}
+.edu-info h3 { font-size: 18px; font-weight: 700; margin-bottom: 12px; }
+.edu-info p { font-size: 15px; line-height: 2; color: var(--dark-soft); }
+.edu-tag {
+  display: inline-block; margin-top: 14px; font-size: 11px; font-weight: 600;
+  background: rgba(58,159,213,0.1); color: var(--blue); padding: 6px 14px; border-radius: 6px;
+}

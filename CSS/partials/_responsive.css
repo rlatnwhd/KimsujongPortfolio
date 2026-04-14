@@ -1,0 +1,67 @@
+/* ═══════════════════════════════════
+   RESPONSIVE
+   책임 : 반응형 미디어 쿼리 (모바일 / 태블릿)
+═══════════════════════════════════ */
+@media (max-width: 900px) {
+  .about-grid { grid-template-columns: 1fr; }
+  .hang-card { width: clamp(300px, 65vw, 550px); }
+  .hc-visual { width: 36%; padding: 32px 18px; }
+  .hc-emoji { font-size: 52px; }
+  .hc-info { padding: 28px 30px; }
+}
+
+@media (max-width: 768px) {
+  section { padding: 90px 0 70px; }
+  .nav-links {
+    position: fixed; top: 96px; left: 0; right: 0;
+    background: rgba(255,255,255,0.98); backdrop-filter: blur(24px);
+    flex-direction: column; padding: 20px; gap: 4px;
+    border-bottom: 1px solid rgba(58,159,213,0.1);
+    transform: translateY(-130%); opacity: 0;
+    transition: all var(--transition); z-index: 799;
+  }
+  .nav-links.open { transform: translateY(0); opacity: 1; }
+  .nav-links li a { padding: 12px 16px; font-size: 14px; }
+  .nav-toggle { display: flex; }
+  .nav-toggle.active span:nth-child(1) { transform: rotate(45deg) translate(5px, 5px); }
+  .nav-toggle.active span:nth-child(2) { opacity: 0; }
+  .nav-toggle.active span:nth-child(3) { transform: rotate(-45deg) translate(5px, -5px); }
+
+  .hero-name { font-size: clamp(38px, 13vw, 64px); letter-spacing: -1px; }
+  .hero-eng { font-size: 8px; letter-spacing: 4px; }
+  .hero-quote { font-size: 17px; }
+  .hero-btns { flex-direction: column; }
+  .btn { justify-content: center; }
+
+  .edu-card { flex-direction: column; text-align: center; padding: 32px 28px; }
+
+  /* Clothesline mobile */
+  .hang-card { flex-direction: column; width: clamp(280px, 80vw, 500px); }
+  .hc-visual { width: 100%; min-height: 180px; padding: 28px; }
+  .hc-emoji { font-size: 48px; }
+  .hc-info { padding: 24px 22px; gap: 12px; }
+  .clothesline-rope { top: 110px; }
+  .proj-slide { padding-top: 50px; }
+
+  .stats-row { padding: 28px 20px; gap: 16px; }
+  .stat-num { font-size: 24px; }
+
+  .cc { padding: 36px 40px; }
+
+  .sk { width: calc(33.33% - 12px); min-width: 84px; }
+  .sk i { font-size: 30px; }
+}
+
+@media (max-width: 480px) {
+  .hero-name { font-size: clamp(32px, 15vw, 48px); }
+  .about-card { padding: 28px 22px; }
+  .sk { width: calc(50% - 8px); }
+  .contact-grid { flex-direction: column; width: 100%; }
+  .cc { min-width: 0; padding: 32px; }
+  .hang-card { width: clamp(260px, 85vw, 380px); }
+  .hc-info { padding: 20px 18px; }
+  .hc-title { font-size: 16px; }
+  .proj-header { padding: 0 16px; }
+  .proj-hint { gap: 16px; }
+  .proj-hint span { font-size: 10px; }
+}

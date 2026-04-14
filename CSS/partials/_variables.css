@@ -1,0 +1,37 @@
+/* ═══════════════════════════════════
+   ROOT & RESET
+   책임 : CSS 변수 정의 및 전역 기본 스타일 초기화
+═══════════════════════════════════ */
+:root {
+  --sky-light: #e8f4fc;
+  --blue: #3a9fd5;
+  --blue-dark: #2a7fad;
+  --blue-light: #5bb8e8;
+  --dark: #1a1c2e;
+  --dark-soft: #2d2f45;
+  --gold: #ffe066;
+  --gold-dark: #e6c84d;
+  --green: #52c45a;
+  --red: #e05252;
+  --card: rgba(255,255,255,0.92);
+  --card-solid: #ffffff;
+  --shadow: rgba(26,28,46,0.10);
+  --shadow-strong: rgba(26,28,46,0.18);
+  --radius: 16px;
+  --radius-sm: 10px;
+  --transition: 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; font-size: 16px; scrollbar-width: none; -ms-overflow-style: none; }
+html::-webkit-scrollbar { display: none; }
+body {
+  font-family: 'Noto Sans KR', -apple-system, BlinkMacSystemFont, sans-serif;
+  background: var(--sky-light);
+  color: var(--dark);
+  overflow-x: hidden;
+  line-height: 1.7;
+  cursor: none;
+}
+a { text-decoration: none; color: inherit; }
+ul { list-style: none; }

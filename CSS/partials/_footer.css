@@ -1,0 +1,15 @@
+/* ═══════════════════════════════════
+   FOOTER
+   책임 : 하단 푸터 스타일
+═══════════════════════════════════ */
+footer {
+  position: relative; z-index: 1; background: var(--dark);
+  color: rgba(255,255,255,0.55); text-align: center;
+  padding: 48px 24px; font-size: 13px; line-height: 2.2;
+}
+.footer-logo {
+  font-family: 'Press Start 2P', monospace; font-size: 13px;
+  color: var(--gold); margin-bottom: 14px; letter-spacing: 2px;
+}
+.heart { display: inline-block; color: #ff6b6b; animation: heartbeat 0.85s ease-in-out infinite; }
+@keyframes heartbeat { 0%,100% { transform: scale(1); } 50% { transform: scale(1.32); } }

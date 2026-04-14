@@ -1,0 +1,63 @@
+/* ═══════════════════════════════════
+   SCROLL PROGRESS BAR
+   책임 : 스크롤 진행률 상단 바 스타일
+═══════════════════════════════════ */
+#scroll-progress {
+  position: fixed;
+  top: 0; left: 0;
+  height: 3px;
+  width: 0%;
+  background: linear-gradient(90deg, var(--blue), var(--gold), var(--green));
+  z-index: 10000;
+  transition: width 0.1s linear;
+  border-radius: 0 2px 2px 0;
+}
+
+/* ═══════════════════════════════════
+   CUSTOM CURSOR
+   책임 : 커스텀 마우스 커서 및 스파크/코인 이펙트 스타일
+═══════════════════════════════════ */
+#cursor {
+  position: fixed;
+  width: 12px; height: 12px;
+  background: var(--blue);
+  border: 2px solid var(--dark);
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 9999;
+  transform: translate(-50%, -50%);
+  transition: width 0.15s ease, height 0.15s ease, background 0.15s ease, opacity 0.15s ease;
+}
+#cursor.hov {
+  width: 44px; height: 44px;
+  background: rgba(255,224,102,0.35);
+  border-color: var(--gold);
+}
+
+.cspark {
+  position: fixed;
+  pointer-events: none; z-index: 9998;
+  width: 5px; height: 5px; border-radius: 50%;
+  animation: sparkFly 0.55s ease-out forwards;
+}
+@keyframes sparkFly {
+  0%   { opacity: 1; transform: translate(0,0) scale(1); }
+  100% { opacity: 0; transform: translate(var(--dx),var(--dy)) scale(0); }
+}
+
+.block-coin {
+  position: fixed;
+  width: 16px; height: 16px;
+  background: var(--gold);
+  border: 3px solid #8b6914;
+  border-radius: 50%;
+  pointer-events: none; z-index: 9997;
+  transform: translate(-50%, -50%);
+  animation: coinFly 0.75s cubic-bezier(0.215, 0.610, 0.355, 1.000) forwards;
+  box-shadow: 0 0 8px rgba(255,224,102,0.6);
+}
+@keyframes coinFly {
+  0%   { opacity: 1; transform: translate(calc(-50% + var(--dx) * 0.3), 0) scale(0.6); }
+  45%  { opacity: 1; transform: translate(calc(-50% + var(--dx)), -110px) scale(1.1); }
+  100% { opacity: 0; transform: translate(calc(-50% + var(--dx) * 1.4), -70px) scale(0.2); }
+}

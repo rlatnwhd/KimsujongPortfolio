@@ -1,0 +1,33 @@
+/* ═══════════════════════════════════
+   ACTIVITY
+   책임 : 활동 타임라인 스타일
+═══════════════════════════════════ */
+#activity { background: rgba(255,255,255,0.15); }
+.act-timeline { max-width: 780px; display: flex; flex-direction: column; gap: 0; position: relative; }
+.act-timeline::before {
+  content: ''; position: absolute; left: 29px; top: 0; bottom: 0; width: 2px;
+  background: linear-gradient(180deg, var(--blue), rgba(58,159,213,0.15));
+}
+.act-item { display: flex; align-items: flex-start; gap: 26px; padding: 0 0 32px; position: relative; z-index: 1; }
+.act-dot {
+  flex-shrink: 0; width: 60px; height: 60px;
+  background: var(--card); border-radius: 14px;
+  border: 1px solid rgba(58,159,213,0.18);
+  box-shadow: 0 4px 16px var(--shadow);
+  display: flex; align-items: center; justify-content: center; font-size: 24px;
+}
+.act-body {
+  background: var(--card); border-radius: var(--radius);
+  box-shadow: 0 4px 20px var(--shadow); border: 1px solid rgba(255,255,255,0.85);
+  padding: 26px 30px; flex: 1;
+  will-change: transform;
+  transition: box-shadow var(--transition);
+}
+.act-body:hover { box-shadow: 0 14px 44px var(--shadow-strong); }
+.act-body strong { font-size: 16px; font-weight: 700; display: block; margin-bottom: 8px; }
+.act-body p { font-size: 14px; color: var(--dark-soft); line-height: 1.9; }
+.act-year {
+  font-family: 'Press Start 2P', monospace; font-size: 8px; color: var(--blue);
+  margin-top: 12px; display: inline-block;
+  background: rgba(58,159,213,0.08); padding: 4px 10px; border-radius: 4px;
+}

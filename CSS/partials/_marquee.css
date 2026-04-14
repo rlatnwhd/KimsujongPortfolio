@@ -1,0 +1,21 @@
+/* ═══════════════════════════════════
+   MARQUEE BANNER
+   책임 : 상단 롤링 텍스트 배너 스타일
+═══════════════════════════════════ */
+.marquee-wrap {
+  position: fixed; top: 0; left: 0; right: 0;
+  height: 34px; background: var(--dark); z-index: 900;
+  overflow: hidden; display: flex; align-items: center;
+}
+.marquee-track {
+  display: flex; white-space: nowrap;
+  animation: marqueeScroll 22s linear infinite;
+}
+.marquee-track span {
+  font-family: 'Press Start 2P', monospace;
+  font-size: 8px; color: var(--gold); padding: 0 40px; letter-spacing: 2px;
+}
+@keyframes marqueeScroll {
+  0%   { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
