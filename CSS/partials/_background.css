@@ -33,3 +33,14 @@
 .c4 { width:130px;height:40px;top:75%;left:12%; }
 .c4::before { width:60px;height:60px;top:-34px;left:15px; }
 .c4::after  { width:45px;height:45px;top:-22px;left:60px; }
+
+/* 전체 배경 페이드 오버레이 : bgTransition.js 가 opacity 0→1 제어 */
+#bg-overlay {
+  position: fixed;
+  inset: 0;
+  background: #14172a;
+  opacity: 0;
+  z-index: 0;
+  pointer-events: none;
+  will-change: opacity;
+}

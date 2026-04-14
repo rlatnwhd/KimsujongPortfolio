@@ -8,7 +8,13 @@
   content: ''; position: absolute; left: 29px; top: 0; bottom: 0; width: 2px;
   background: linear-gradient(180deg, var(--blue), rgba(58,159,213,0.15));
 }
-.act-item { display: flex; align-items: flex-start; gap: 26px; padding: 0 0 32px; position: relative; z-index: 1; }
+.act-item {
+  display: flex; align-items: flex-start; gap: 26px; padding: 0 0 32px; position: relative; z-index: 1;
+  /* activityReveal.js 가 scroll 에 따라 transform·opacity 직접 제어 */
+  opacity: 0;
+  transform: translateX(-90px);
+  will-change: transform, opacity;
+}
 .act-dot {
   flex-shrink: 0; width: 60px; height: 60px;
   background: var(--card); border-radius: 14px;

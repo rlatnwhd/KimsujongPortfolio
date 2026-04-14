@@ -3,6 +3,13 @@
    책임 : 레이아웃 컨테이너, 섹션 공통 스타일,
           리빌 애니메이션, 그라운드 바, 하늘→어두운 전환
 ═══════════════════════════════════ */
+
+/* Text Selection — 파란 배경 제거, 글자색만 변경 */
+::selection {
+  background: transparent;
+  color: #006400;
+}
+
 .container { max-width: 1200px; margin: 0 auto; padding: 0 6%; }
 section { position: relative; z-index: 1; padding: 130px 0 110px; }
 
@@ -16,20 +23,17 @@ section { position: relative; z-index: 1; padding: 130px 0 110px; }
 }
 .sec-title .accent { color: var(--blue); }
 .sec-title::after {
-  content: ''; display: block; width: 56px; height: 4px;
+  content: ''; display: block; width: 0; height: 4px;
   background: linear-gradient(90deg, var(--blue), var(--gold));
   border-radius: 2px; margin-top: 14px;
+  transition: width 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.3s;
 }
+.sec-title.sr-active::after { width: 56px; }
 .reveal-center { text-align: center; }
 .reveal-center::after { margin-left: auto; margin-right: auto; }
 
-/* Reveal */
-.reveal { opacity: 0; transform: translateY(36px); transition: opacity 0.65s ease, transform 0.65s ease; }
-.reveal.visible { opacity: 1; transform: translateY(0); }
-.reveal-delay-1 { transition-delay: 0.1s; }
-.reveal-delay-2 { transition-delay: 0.2s; }
-.reveal-delay-3 { transition-delay: 0.3s; }
-.reveal-delay-4 { transition-delay: 0.4s; }
+/* Reveal — JS(reveal.js)가 opacity·transform을 직접 제어. CSS transition 없음. */
+.reveal { opacity: 0; will-change: transform, opacity; }
 
 /* Utility */
 .hi { color: var(--blue); font-weight: 600; }
@@ -43,16 +47,10 @@ section { position: relative; z-index: 1; padding: 130px 0 110px; }
 }
 @keyframes groundShift { 0%,100% { background-position: 0 50%; } 50% { background-position: 100% 50%; } }
 
-/* ─── Sky to Dark transition before Projects ─── */
+/* ─── Sky to Dark transition (visual handled by #bg-overlay in bgTransition.js) ─── */
 .sky-fade {
   position: relative;
   z-index: 1;
   height: 260px;
-  background: linear-gradient(180deg,
-    transparent 0%,
-    rgba(40, 50, 80, 0.25) 25%,
-    rgba(20, 25, 50, 0.7) 60%,
-    rgba(14, 17, 26, 0.95) 100%
-  );
   pointer-events: none;
 }

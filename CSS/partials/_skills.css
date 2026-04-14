@@ -11,7 +11,10 @@
 .group-label::after {
   content: ''; flex: 1; height: 1px;
   background: linear-gradient(90deg, rgba(58,159,213,0.25), transparent);
+  transform: scaleX(0); transform-origin: left;
+  transition: transform 0.9s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.2s;
 }
+.skill-group.sr-active .group-label::after { transform: scaleX(1); }
 .skill-row { display: flex; flex-wrap: wrap; gap: 14px; }
 .sk {
   width: 116px; background: var(--card); border-radius: var(--radius-sm);

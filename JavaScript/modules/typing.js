@@ -11,8 +11,10 @@
   function tick() {
     const word = words[wi];
     if (del) {
-      el.textContent = word.slice(0, --ci);
+      ci--;
+      /* ci 감소 먼저 → 0 미만이면 내용 세팅 없이 바로 다음 단어로 */
       if (ci < 0) { del = false; wi = (wi + 1) % words.length; ci = 0; setTimeout(tick, 450); return; }
+      el.textContent = word.slice(0, ci);
       setTimeout(tick, 55);
     } else {
       el.textContent = word.slice(0, ++ci);

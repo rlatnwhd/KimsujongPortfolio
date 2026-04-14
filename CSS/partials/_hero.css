@@ -13,6 +13,11 @@
   background: rgba(58,159,213,0.1); color: var(--blue);
   padding: 10px 20px; border-radius: 50px;
   border: 1px solid rgba(58,159,213,0.25); margin-bottom: 28px;
+  animation: badgePulse 3s ease-in-out infinite;
+}
+@keyframes badgePulse {
+  0%,100% { box-shadow: 0 0 0 0 rgba(58,159,213,0); border-color: rgba(58,159,213,0.25); }
+  50%      { box-shadow: 0 0 0 6px rgba(58,159,213,0.08); border-color: rgba(58,159,213,0.5); }
 }
 .hero-name {
   font-size: clamp(52px, 10vw, 100px); font-weight: 700;

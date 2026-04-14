@@ -43,3 +43,8 @@
 }
 .stat-plus { font-family: 'Press Start 2P', monospace; font-size: 18px; color: var(--gold); margin-top: -8px; }
 .stat-label { font-size: 12px; color: var(--dark-soft); opacity: 0.7; letter-spacing: 1px; text-transform: uppercase; }
+.stats-row.sr-active .stat-num { animation: statGlow 3s ease-in-out infinite; }
+@keyframes statGlow {
+  0%,100% { text-shadow: none; }
+  50%      { text-shadow: 0 0 24px rgba(58,159,213,0.45); }
+}
