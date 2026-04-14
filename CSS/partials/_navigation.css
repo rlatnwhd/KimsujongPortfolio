@@ -15,12 +15,13 @@ nav {
 nav.scrolled {
   background: rgba(255,255,255,0.96);
   box-shadow: 0 4px 30px var(--shadow);
+  border-bottom-color: rgba(58,159,213,0.12);
 }
 .nav-logo {
   font-family: 'Press Start 2P', monospace; font-size: 12px;
   color: var(--dark); letter-spacing: 1px;
 }
-.nav-logo em { color: var(--blue); font-style: normal; }
+.nav-logo em { color: var(--accent); font-style: normal; }
 .nav-links { display: flex; gap: 4px; }
 .nav-links li a {
   font-size: 13px; font-weight: 500; color: var(--dark-soft);
@@ -29,7 +30,7 @@ nav.scrolled {
 }
 .nav-links li a::after {
   content: ''; position: absolute; bottom: 0; left: 50%;
-  width: 0; height: 2px; background: var(--blue);
+  width: 0; height: 2px; background: var(--accent);
   transition: width var(--transition), left var(--transition);
 }
 .nav-links li a:hover::after, .nav-links li a.active::after { width: 60%; left: 20%; }

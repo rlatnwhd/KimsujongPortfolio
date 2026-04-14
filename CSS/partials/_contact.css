@@ -7,13 +7,13 @@
 .contact-grid { display: flex; justify-content: center; gap: 24px; flex-wrap: wrap; }
 .cc {
   background: var(--card); border-radius: var(--radius);
-  box-shadow: 0 8px 32px var(--shadow); border: 1px solid rgba(255,255,255,0.85);
+  box-shadow: 0 8px 32px var(--shadow); border: 1px solid var(--border);
   padding: 48px 64px; display: flex; flex-direction: column;
   align-items: center; gap: 16px; min-width: 200px;
-  will-change: transform; transition: box-shadow var(--transition), background var(--transition), color var(--transition);
+  will-change: transform; transition: box-shadow var(--transition), background var(--transition), border-color var(--transition);
 }
-.cc:hover { box-shadow: 0 20px 60px var(--shadow-strong); }
+.cc:hover { box-shadow: 0 20px 60px var(--shadow-strong); border-color: var(--accent-border); }
 .cc-icon { font-size: 48px; transition: transform var(--transition); }
 .cc:hover .cc-icon { transform: scale(1.15); }
-.cc-label { font-family: 'Press Start 2P', monospace; font-size: 10px; color: var(--dark); transition: color var(--transition); }
+.cc-label { font-family: 'Press Start 2P', monospace; font-size: 10px; color: var(--accent); transition: color var(--transition); }
 .cc-val { font-size: 13px; opacity: 0.6; transition: color var(--transition), opacity var(--transition); }

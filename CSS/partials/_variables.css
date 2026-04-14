@@ -1,34 +1,62 @@
 /* ═══════════════════════════════════
-   ROOT & RESET
+   ROOT & RESET — BLUE SKY THEME
    책임 : CSS 변수 정의 및 전역 기본 스타일 초기화
 ═══════════════════════════════════ */
 :root {
+  /* ── 배경 ── */
+  --bg:           #e8f4fc;
+  --bg-section:   rgba(255,255,255,0.20);
+
+  /* ── 액센트 (파란색) ── */
+  --accent:       #3a9fd5;
+  --accent-dark:  #2e8bb8;
+  --accent-dim:   rgba(58,159,213,0.10);
+  --accent-border:rgba(58,159,213,0.25);
+
+  /* ── 텍스트 ── */
+  --text:         #1a1c2e;
+  --text-muted:   rgba(26,28,46,0.65);
+  --text-dim:     rgba(26,28,46,0.38);
+
+  /* ── 카드 ── */
+  --card:         rgba(255,255,255,0.55);
+  --card-solid:   rgba(255,255,255,0.85);
+  --border:       rgba(255,255,255,0.85);
+  --border-accent:rgba(58,159,213,0.25);
+
+  /* ── 그림자 ── */
+  --shadow:         rgba(26,28,46,0.12);
+  --shadow-strong:  rgba(26,28,46,0.25);
+
+  /* ── 기하학 ── */
+  --radius:     12px;
+  --radius-sm:  8px;
+  --transition: 0.3s cubic-bezier(0.25,0.46,0.45,0.94);
+
+  /* ── 레거시 호환 (기존 var(--blue)/var(--gold) 사용 요소들 자동 매핑) ── */
+  --blue:      #3a9fd5;
+  --blue-dark: #2e8bb8;
+  --blue-light:#5bb5de;
+  --gold:      #ffe066;
+  --gold-dark: #e6b84d;
+  --green:     #4caf50;
+  --dark:      #1a1c2e;
+  --dark-soft: rgba(26,28,46,0.65);
   --sky-light: #e8f4fc;
-  --blue: #3a9fd5;
-  --blue-dark: #2a7fad;
-  --blue-light: #5bb8e8;
-  --dark: #1a1c2e;
-  --dark-soft: #2d2f45;
-  --gold: #ffe066;
-  --gold-dark: #e6c84d;
-  --green: #52c45a;
-  --red: #e05252;
-  --card: rgba(255,255,255,0.92);
-  --card-solid: #ffffff;
-  --shadow: rgba(26,28,46,0.10);
-  --shadow-strong: rgba(26,28,46,0.18);
-  --radius: 16px;
-  --radius-sm: 10px;
-  --transition: 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
 
 *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
-html { scroll-behavior: smooth; font-size: 16px; scrollbar-width: none; -ms-overflow-style: none; }
+html {
+  scroll-behavior: smooth;
+  font-size: 16px;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
 html::-webkit-scrollbar { display: none; }
 body {
   font-family: 'Noto Sans KR', -apple-system, BlinkMacSystemFont, sans-serif;
   background: var(--sky-light);
-  color: var(--dark);
+  color: var(--text);
   overflow-x: hidden;
   line-height: 1.7;
   cursor: none;

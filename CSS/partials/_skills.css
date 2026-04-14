@@ -5,12 +5,12 @@
 .skill-group { margin-bottom: 44px; }
 .group-label {
   font-family: 'Press Start 2P', monospace; font-size: 9px;
-  color: var(--blue); margin-bottom: 20px;
+  color: var(--accent); margin-bottom: 20px;
   display: flex; align-items: center; gap: 16px;
 }
 .group-label::after {
   content: ''; flex: 1; height: 1px;
-  background: linear-gradient(90deg, rgba(58,159,213,0.25), transparent);
+  background: linear-gradient(90deg, var(--accent-border), transparent);
   transform: scaleX(0); transform-origin: left;
   transition: transform 0.9s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.2s;
 }
@@ -18,32 +18,33 @@
 .skill-row { display: flex; flex-wrap: wrap; gap: 14px; }
 .sk {
   width: 116px; background: var(--card); border-radius: var(--radius-sm);
-  box-shadow: 0 4px 16px var(--shadow); border: 1px solid rgba(255,255,255,0.85);
+  box-shadow: 0 4px 16px var(--shadow); border: 1px solid var(--border);
   padding: 22px 12px 14px; display: flex; flex-direction: column; align-items: center; gap: 10px;
   position: relative; cursor: none; will-change: transform;
-  transition: box-shadow var(--transition), background var(--transition);
+  transition: box-shadow var(--transition), background var(--transition), border-color var(--transition);
 }
-.sk:hover { box-shadow: 0 12px 36px var(--shadow-strong); background: var(--card-solid); }
+.sk:hover { box-shadow: 0 12px 36px var(--shadow-strong); background: var(--card-solid); border-color: var(--accent-border); }
 .sk i { font-size: 38px; transition: transform var(--transition); }
 .sk:hover i { transform: scale(1.15); }
-.sk-name { font-size: 11px; font-weight: 600; text-align: center; color: var(--dark-soft); }
-.sk-bar { width: 100%; height: 3px; background: rgba(0,0,0,0.08); border-radius: 2px; overflow: hidden; }
+.sk-name { font-size: 11px; font-weight: 600; text-align: center; color: var(--text-muted); }
+.sk-bar { width: 100%; height: 3px; background: rgba(255,255,255,0.1); border-radius: 2px; overflow: hidden; }
 .sk-fill {
   height: 100%; width: 0; border-radius: 2px;
-  background: linear-gradient(90deg, var(--blue), var(--gold));
+  background: linear-gradient(90deg, var(--accent), var(--blue-light));
   transition: width 1.2s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
 .sk-tip {
   position: absolute; bottom: calc(100% + 10px); left: 50%;
   transform: translateX(-50%);
-  background: var(--dark); color: var(--gold);
+  background: var(--card-solid); color: var(--accent);
   font-family: 'Press Start 2P', monospace; font-size: 7px;
   padding: 6px 12px; border-radius: 6px; white-space: nowrap;
   opacity: 0; transition: opacity 0.2s; pointer-events: none; z-index: 10;
+  border: 1px solid var(--accent-border);
 }
 .sk-tip::after {
   content: ''; position: absolute; top: 100%; left: 50%;
-  transform: translateX(-50%); border: 5px solid transparent; border-top-color: var(--dark);
+  transform: translateX(-50%); border: 5px solid transparent; border-top-color: var(--accent-border);
 }
 .sk:hover .sk-tip { opacity: 1; }
 .skill-note { font-size: 12px; opacity: 0.4; margin-top: 10px; }

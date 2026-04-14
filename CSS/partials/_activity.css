@@ -18,22 +18,22 @@
 .act-dot {
   flex-shrink: 0; width: 60px; height: 60px;
   background: var(--card); border-radius: 14px;
-  border: 1px solid rgba(58,159,213,0.18);
+  border: 1px solid var(--accent-border);
   box-shadow: 0 4px 16px var(--shadow);
   display: flex; align-items: center; justify-content: center; font-size: 24px;
 }
 .act-body {
   background: var(--card); border-radius: var(--radius);
-  box-shadow: 0 4px 20px var(--shadow); border: 1px solid rgba(255,255,255,0.85);
+  box-shadow: 0 4px 20px var(--shadow); border: 1px solid var(--border);
   padding: 26px 30px; flex: 1;
   will-change: transform;
-  transition: box-shadow var(--transition);
+  transition: box-shadow var(--transition), border-color var(--transition);
 }
-.act-body:hover { box-shadow: 0 14px 44px var(--shadow-strong); }
+.act-body:hover { box-shadow: 0 14px 44px var(--shadow-strong); border-color: var(--accent-border); }
 .act-body strong { font-size: 16px; font-weight: 700; display: block; margin-bottom: 8px; }
-.act-body p { font-size: 14px; color: var(--dark-soft); line-height: 1.9; }
+.act-body p { font-size: 14px; color: var(--text-muted); line-height: 1.9; }
 .act-year {
-  font-family: 'Press Start 2P', monospace; font-size: 8px; color: var(--blue);
+  font-family: 'Press Start 2P', monospace; font-size: 8px; color: var(--accent);
   margin-top: 12px; display: inline-block;
-  background: rgba(58,159,213,0.08); padding: 4px 10px; border-radius: 4px;
+  background: var(--accent-dim); padding: 4px 10px; border-radius: 4px;
 }

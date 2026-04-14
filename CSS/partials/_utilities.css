@@ -47,7 +47,7 @@ section { position: relative; z-index: 1; padding: 130px 0 110px; }
 }
 @keyframes groundShift { 0%,100% { background-position: 0 50%; } 50% { background-position: 100% 50%; } }
 
-/* ─── Sky to Dark transition (visual handled by #bg-overlay in bgTransition.js) ─── */
+/* 다크 테마에서 전환 간격 최소화 */
 .sky-fade {
   position: relative;
   z-index: 1;
