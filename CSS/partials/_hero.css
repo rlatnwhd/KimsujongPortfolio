@@ -97,3 +97,26 @@
   animation: scrollLineAnim 2s ease-in-out infinite; transform-origin: top;
 }
 @keyframes scrollLineAnim { 0%,100% { transform: scaleY(0.3); } 50% { transform: scaleY(1); } }
+
+/* ── 데코 레이어 ────────────────────────────── */
+.hero-deco {
+  position: absolute; inset: 0;
+  pointer-events: none; z-index: 0; overflow: visible;
+}
+.hero-deco img { position: absolute; will-change: transform, opacity, filter; }
+
+/* 메인 캐릭터 – 화면 오른쪽 하단 */
+.hd-char  { width: clamp(160px, 20vw, 260px); bottom: 6%; right: 8%; }
+
+/* 파티클 1 (코드 </>)  – 왼쪽 중간 */
+.hd-p1 { width: clamp(80px, 9vw,  130px); top: 32%; left: 6%; }
+/* 파티클 2 (별)       – 오른쪽 상단 */
+.hd-p2 { width: clamp(56px, 6vw,   90px); top: 14%; right: 14%; }
+/* 파티클 3 (구름)     – 왼쪽 상단 */
+.hd-p3 { width: clamp(90px, 11vw, 150px); top: 10%; left: 18%; }
+/* 파티클 4 ({})       – 오른쪽 중간 */
+.hd-p4 { width: clamp(60px, 7vw,  110px); top: 44%; right: 5%; }
+/* 파티클 5 (번개)     – 왼쪽 하단 */
+.hd-p5 { width: clamp(40px, 5vw,   72px); bottom: 18%; left: 10%; }
+/* 파티클 6 (다이아)   – 화면 상단 중앙 */
+.hd-p6 { width: clamp(56px, 6vw,   90px); top: 8%;  left: 44%; }
