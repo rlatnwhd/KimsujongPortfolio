@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>김수종 | Frontend Developer</title>
+  <meta name="description" content="프론트엔드 개발자 김수종의 포트폴리오입니다.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Noto+Sans+KR:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.15.1/devicon.min.css">
+  <link rel="stylesheet" href="../CSS/style.css">
+</head>
+<body>
+
+<!-- Scroll progress bar -->
+<div id="scroll-progress"></div>
+<div id="cursor"></div>
+
+<div class="sky-bg"></div>
+<div class="clouds-layer">
+  <div class="cloud c1" id="cl1"></div>
+  <div class="cloud c2" id="cl2"></div>
+  <div class="cloud c3" id="cl3"></div>
+  <div class="cloud c4" id="cl4"></div>
+</div>
+
+<!-- ══════════════ MARQUEE ══════════════ -->
+<div class="marquee-wrap">
+  <div class="marquee-track">
+    <span>✦ FRONTEND DEVELOPER PORTFOLIO ✦ KIM SU-JONG ✦ HTML / CSS / JS / REACT ✦</span>
+    <span>✦ FRONTEND DEVELOPER PORTFOLIO ✦ KIM SU-JONG ✦ HTML / CSS / JS / REACT ✦</span>
+    <span>✦ FRONTEND DEVELOPER PORTFOLIO ✦ KIM SU-JONG ✦ HTML / CSS / JS / REACT ✦</span>
+    <span>✦ FRONTEND DEVELOPER PORTFOLIO ✦ KIM SU-JONG ✦ HTML / CSS / JS / REACT ✦</span>
+  </div>
+</div>
+
+<!-- ══════════════ NAV ══════════════ -->
+<nav>
+  <a href="#hero" class="nav-logo">KSJ<em>.dev</em></a>
+  <button class="nav-toggle" aria-label="메뉴 열기">
+    <span></span><span></span><span></span>
+  </button>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#education">Education</a></li>
+    <li><a href="#skills">Skills</a></li>
+    <li><a href="#projects-zone">Projects</a></li>
+    <li><a href="#activity">Activity</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</nav>
+
+<!-- ══════════════ HERO ══════════════ -->
+<section id="hero">
+  <canvas id="hero-particles"></canvas>
+  <div class="container">
+    <div class="hero-inner">
+      <div class="hero-badge reveal">✦ FRONTEND DEVELOPER</div>
+      <h1 class="hero-name reveal">김<span class="accent">수</span>종</h1>
+      <p class="hero-eng reveal">KIM &nbsp; SU · JONG</p>
+      <div class="hero-typing-wrap reveal">
+        <span id="typed-text"></span><span class="typed-cursor">|</span>
+      </div>
+      <div class="hero-quote reveal">
+        단순 구현을 넘어,<br>
+        <span class="hi">사용 경험까지 만드는</span> 프론트엔드 개발자
+      </div>
+      <div class="hero-btns reveal">
+        <a href="#projects-zone" class="btn btn-primary">▶ Projects</a>
+        <a href="#contact" class="btn btn-outline">✉ Contact</a>
+      </div>
+    </div>
+  </div>
+  <div class="scroll-hint">
+    <span>SCROLL</span>
+    <div class="scroll-line"></div>
+  </div>
+</section>
+<div class="ground"></div>
+
+<!-- ══════════════ ABOUT ══════════════ -->
+<section id="about">
+  <div class="container">
+    <p class="sec-label reveal">— 01</p>
+    <h2 class="sec-title reveal">About <span class="accent">Me</span></h2>
+    <div class="about-grid">
+      <div class="about-card tilt-card reveal">
+        <h3><span class="icon">🙋</span> 소개</h3>
+        <p>
+          안녕하세요! 사용 경험을 진지하게 고민하는 프론트엔드 개발자 <span class="hi">김수종</span>입니다.<br><br>
+          단순히 작동하는 코드를 넘어, 실제로 사용할 때 느껴지는 <span class="hi">경험의 질</span>을 함께 설계합니다.<br><br>
+          2D 게임과 인터랙티브 웹에서 영감을 받아, 재미있고 직관적인 인터페이스 만드는 것을 좋아합니다.
+        </p>
+      </div>
+      <div class="about-card tilt-card reveal reveal-delay-2">
+        <h3><span class="icon">⚡</span> 핵심 가치</h3>
+        <ul class="value-list">
+          <li>사용성과 심미성을 동시에 추구하는 개발</li>
+          <li>애니메이션과 인터랙션으로 생동감 있는 UI 구현</li>
+          <li>반응형 웹 개발에 대한 높은 관심과 열정</li>
+          <li>게임적 요소를 통한 독창적 사용자 경험 제공</li>
+          <li>꾸준한 학습과 성장을 즐기는 개발자</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Stats row -->
+    <div class="stats-row reveal">
+      <div class="stat-item">
+        <span class="stat-num" data-target="5">0</span>
+        <span class="stat-plus">+</span>
+        <span class="stat-label">Projects</span>
+      </div>
+      <div class="stat-item">
+        <span class="stat-num" data-target="8">0</span>
+        <span class="stat-plus">+</span>
+        <span class="stat-label">Tech Stacks</span>
+      </div>
+      <div class="stat-item">
+        <span class="stat-num" data-target="2">0</span>
+        <span class="stat-plus">+</span>
+        <span class="stat-label">Years Learning</span>
+      </div>
+      <div class="stat-item">
+        <span class="stat-num" data-target="100">0</span>
+        <span class="stat-plus">%</span>
+        <span class="stat-label">Passion</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════ EDUCATION ══════════════ -->
+<section id="education">
+  <div class="container">
+    <p class="sec-label reveal">— 02</p>
+    <h2 class="sec-title reveal"><span class="accent">Education</span></h2>
+    <div class="edu-card tilt-card reveal">
+      <div class="edu-icon">🎓</div>
+      <div class="edu-info">
+        <h3>신라대학교</h3>
+        <p>
+          컴퓨터소프트웨어공학부<br>
+          학번 : 202395007<br>
+          재학 중
+        </p>
+        <span class="edu-tag">컴퓨터소프트웨어공학부</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════ SKILLS ══════════════ -->
+<section id="skills">
+  <div class="container">
+    <p class="sec-label reveal">— 03</p>
+    <h2 class="sec-title reveal"><span class="accent">Skills</span></h2>
+
+    <div class="skill-group reveal">
+      <div class="group-label">LANGUAGES</div>
+      <div class="skill-row">
+        <div class="sk">
+          <div class="sk-tip">상급</div>
+          <i class="devicon-html5-plain colored"></i>
+          <span class="sk-name">HTML5</span>
+          <div class="sk-bar"><div class="sk-fill" data-level="90"></div></div>
+        </div>
+        <div class="sk">
+          <div class="sk-tip">상급</div>
+          <i class="devicon-css3-plain colored"></i>
+          <span class="sk-name">CSS3</span>
+          <div class="sk-bar"><div class="sk-fill" data-level="85"></div></div>
+        </div>
+        <div class="sk">
+          <div class="sk-tip">중급</div>
+          <i class="devicon-javascript-plain colored"></i>
+          <span class="sk-name">JavaScript</span>
+          <div class="sk-bar"><div class="sk-fill" data-level="70"></div></div>
+        </div>
+        <div class="sk">
+          <div class="sk-tip">입문</div>
+          <i class="devicon-typescript-plain colored"></i>
+          <span class="sk-name">TypeScript</span>
+          <div class="sk-bar"><div class="sk-fill" data-level="35"></div></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="skill-group reveal">
+      <div class="group-label">FRAMEWORKS &amp; LIBRARIES</div>
+      <div class="skill-row">
+        <div class="sk">
+          <div class="sk-tip">중급</div>
+          <i class="devicon-react-original colored"></i>
+          <span class="sk-name">React</span>
+          <div class="sk-bar"><div class="sk-fill" data-level="65"></div></div>
+        </div>
+        <div class="sk">
+          <div class="sk-tip">입문</div>
+          <i class="devicon-nodejs-plain colored"></i>
+          <span class="sk-name">Node.js</span>
+          <div class="sk-bar"><div class="sk-fill" data-level="40"></div></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="skill-group reveal">
+      <div class="group-label">TOOLS</div>
+      <div class="skill-row">
+        <div class="sk">
+          <div class="sk-tip">중급</div>
+          <i class="devicon-git-plain colored"></i>
+          <span class="sk-name">Git</span>
+          <div class="sk-bar"><div class="sk-fill" data-level="70"></div></div>
+        </div>
+        <div class="sk">
+          <div class="sk-tip">중급</div>
+          <i class="devicon-github-original"></i>
+          <span class="sk-name">GitHub</span>
+          <div class="sk-bar"><div class="sk-fill" data-level="70"></div></div>
+        </div>
+        <div class="sk">
+          <div class="sk-tip">중급</div>
+          <i class="devicon-vscode-plain colored"></i>
+          <span class="sk-name">VS Code</span>
+          <div class="sk-bar"><div class="sk-fill" data-level="80"></div></div>
+        </div>
+        <div class="sk">
+          <div class="sk-tip">입문</div>
+          <i class="devicon-figma-plain colored"></i>
+          <span class="sk-name">Figma</span>
+          <div class="sk-bar"><div class="sk-fill" data-level="35"></div></div>
+        </div>
+      </div>
+    </div>
+    <p class="skill-note reveal">※ 아이콘에 마우스를 올리면 숙련도를 확인할 수 있습니다</p>
+  </div>
+</section>
+<div class="ground"></div>
+<div class="sky-fade"></div>
+
+<!-- ══════════════ PROJECTS — CLOTHESLINE SCROLL ══════════════ -->
+<div id="projects-zone">
+  <div id="projects-pin">
+    <!-- Header -->
+    <div class="proj-header">
+      <div class="proj-header-left">
+        <span class="proj-sec-label">— 04</span>
+        <span>PROJECTS</span>
+      </div>
+      <div class="proj-progress-wrap">
+        <div class="proj-progress-dots" id="proj-dots"></div>
+        <span class="proj-count"><span id="pCurr">1</span> / 5</span>
+      </div>
+    </div>
+
+    <!-- Clothesline -->
+    <div class="clothesline-rope"></div>
+
+    <!-- Track -->
+    <div id="proj-track-wrap">
+      <div id="proj-track">
+        <!-- Cards injected by JS -->
+      </div>
+    </div>
+
+    <!-- Progress bar -->
+    <div class="proj-bar-wrap"><div id="proj-bar"></div></div>
+
+  </div>
+</div>
+
+<!-- ══════════════ ACTIVITY ══════════════ -->
+<section id="activity">
+  <div class="container">
+    <p class="sec-label reveal">— 05</p>
+    <h2 class="sec-title reveal"><span class="accent">Activity</span></h2>
+    <div class="act-timeline">
+      <div class="act-item reveal">
+        <div class="act-dot">💻</div>
+        <div class="act-body tilt-card">
+          <strong>웹 프론트엔드 개발 학습</strong>
+          <p>HTML, CSS, JavaScript 기반 반응형 웹 개발 역량 강화. React 프레임워크 학습 및 실전 프로젝트 적용.</p>
+          <span class="act-year">2023 – 2025</span>
+        </div>
+      </div>
+      <div class="act-item reveal reveal-delay-1">
+        <div class="act-dot">🎮</div>
+        <div class="act-body tilt-card">
+          <strong>인터랙티브 웹 & 게임 프로젝트</strong>
+          <p>Canvas API와 게임적 요소를 결합한 창의적 웹 인터페이스 구현. 사용자 경험 중심의 UI/UX 설계 연구.</p>
+          <span class="act-year">2024</span>
+        </div>
+      </div>
+      <div class="act-item reveal reveal-delay-2">
+        <div class="act-dot">🌱</div>
+        <div class="act-body tilt-card">
+          <strong>GitHub 포트폴리오 & 오픈소스</strong>
+          <p>GitHub를 통한 개인 프로젝트 꾸준히 관리. 버전 관리 습관 형성 및 코드 공유 문화 실천 중.</p>
+          <span class="act-year">2023 – 현재</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════ CONTACT ══════════════ -->
+<section id="contact">
+  <div class="container">
+    <p class="sec-label reveal" style="text-align:center">— 06</p>
+    <h2 class="sec-title reveal reveal-center">Get in <span class="accent">Touch</span></h2>
+    <p class="contact-sub reveal">
+      함께 일하고 싶으시거나 궁금한 점이 있다면<br>
+      언제든지 편하게 연락 주세요!
+    </p>
+    <div class="contact-grid">
+      <a href="mailto:20231023@silla.ac.kr" class="cc tilt-card reveal reveal-delay-1">
+        <span class="cc-icon">📧</span>
+        <span class="cc-label">EMAIL</span>
+        <span class="cc-val">20231023@silla.ac.kr</span>
+      </a>
+      <a href="https://github.com/" target="_blank" rel="noopener noreferrer" class="cc tilt-card reveal reveal-delay-2">
+        <span class="cc-icon">🐱</span>
+        <span class="cc-label">GITHUB</span>
+        <span class="cc-val">github.com/kimsujong</span>
+      </a>
+      <div class="cc tilt-card reveal reveal-delay-3">
+        <span class="cc-icon">🏫</span>
+        <span class="cc-label">SCHOOL</span>
+        <span class="cc-val">신라대학교</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="ground"></div>
+<footer>
+  <div class="footer-logo">KSJ.dev</div>
+  <p>© 2025 김수종 · 신라대학교 컴퓨터소프트웨어공학부</p>
+  <p>Made with <span class="heart">♥</span> and a lot of ☕ · HTML / CSS / Vanilla JS</p>
+</footer>
+
+<script src="../JavaScript/main.js"></script>
+</body>
+</html>
