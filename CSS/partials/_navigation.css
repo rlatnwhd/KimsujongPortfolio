@@ -3,7 +3,7 @@
    책임 : 상단 내비게이션 바 스타일 및 상태 변화
 ═══════════════════════════════════ */
 nav {
-  position: fixed; top: 34px; left: 0; right: 0; z-index: 800;
+  position: fixed; top: 34px; left: 0; right: 0; z-index: 9000;
   height: 62px;
   background: rgba(232,244,252,0.82);
   backdrop-filter: blur(24px); -webkit-backdrop-filter: blur(24px);

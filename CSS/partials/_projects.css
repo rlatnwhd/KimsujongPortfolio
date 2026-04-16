@@ -1,9 +1,9 @@
 /* ═══════════════════════════════════
-   PROJECTS — CLOTHESLINE HORIZONTAL SCROLL
-   책임 : 프로젝트 수평 스크롤 빨랫줄 UI 전체 스타일
+   PROJECTS — 평행사변형 프레임 + 콘텐츠 시차
+   단일 트랙, clip-path 평행사변형 경계
+   내부 콘텐츠(배경+이미지+텍스트) 시차 이동 → 원근감
 ═══════════════════════════════════ */
 
-/* Smooth background transition handled by .sky-fade div */
 #projects-zone {
   position: relative;
   z-index: 1;
@@ -15,39 +15,22 @@
   width: 100%;
   height: calc(100vh - 96px);
   overflow: hidden;
-  background: linear-gradient(180deg, #14172a 0%, #1a1c2e 40%, #1e2038 100%);
+  background: #0a0c1a;
 }
 
-/* Stars */
-#projects-pin::before {
-  content: '';
-  position: absolute; inset: 0;
-  background-image:
-    radial-gradient(1px 1px at 10% 20%, rgba(255,255,255,0.5) 0%, transparent 100%),
-    radial-gradient(1.5px 1.5px at 25% 50%, rgba(255,224,102,0.4) 0%, transparent 100%),
-    radial-gradient(1px 1px at 42% 12%, rgba(255,255,255,0.4) 0%, transparent 100%),
-    radial-gradient(1px 1px at 58% 65%, rgba(255,255,255,0.3) 0%, transparent 100%),
-    radial-gradient(1.5px 1.5px at 72% 30%, rgba(13,204,114,0.4) 0%, transparent 100%),
-    radial-gradient(1px 1px at 88% 55%, rgba(255,255,255,0.5) 0%, transparent 100%),
-    radial-gradient(1px 1px at 15% 80%, rgba(255,255,255,0.3) 0%, transparent 100%),
-    radial-gradient(1px 1px at 65% 88%, rgba(255,224,102,0.25) 0%, transparent 100%);
-  pointer-events: none;
-  z-index: 0;
-}
-
-/* Top header bar */
+/* ── 상단 헤더바 ── */
 .proj-header {
   position: absolute;
   top: 0; left: 0; right: 0;
-  z-index: 10;
-  height: 60px;
-  background: rgba(20, 23, 42, 0.7);
+  z-index: 20;
+  height: 48px;
+  background: rgba(10, 12, 26, 0.80);
   backdrop-filter: blur(16px);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+  border-bottom: 1px solid rgba(255,255,255,0.06);
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 0 36px;
+  padding: 0 40px;
 }
 
 .proj-header-left {
@@ -61,7 +44,7 @@
 
 .proj-sec-label {
   font-size: 8px;
-  color: rgba(255, 255, 255, 0.3);
+  color: rgba(255,255,255,0.3);
 }
 
 .proj-progress-wrap {
@@ -70,20 +53,15 @@
   gap: 16px;
 }
 
-.proj-progress-dots {
-  display: flex;
-  gap: 8px;
-}
+.proj-progress-dots { display: flex; gap: 8px; }
 
 .pdot {
-  width: 10px;
-  height: 10px;
+  width: 10px; height: 10px;
   border-radius: 50%;
-  background: rgba(255, 255, 255, 0.12);
-  border: 1.5px solid rgba(255, 255, 255, 0.2);
-  transition: all var(--transition);
+  background: rgba(255,255,255,0.12);
+  border: 1.5px solid rgba(255,255,255,0.2);
+  transition: all 0.3s ease;
 }
-
 .pdot.done {
   background: var(--gold);
   border-color: var(--gold);
@@ -93,278 +71,196 @@
 .proj-count {
   font-family: 'Press Start 2P', monospace;
   font-size: 9px;
-  color: rgba(255, 255, 255, 0.35);
+  color: rgba(255,255,255,0.35);
 }
+.proj-count span { color: var(--gold); }
 
-.proj-count span {
-  color: var(--gold);
-}
-
-/* ─── Clothesline rope ─── */
-.clothesline-rope {
-  position: absolute;
-  top: 110px;
-  left: 0;
-  width: 100%;
-  height: 3px;
-  background: linear-gradient(90deg,
-    transparent 0%,
-    rgba(180, 140, 90, 0.6) 5%,
-    rgba(200, 160, 100, 0.8) 20%,
-    rgba(180, 140, 90, 0.9) 50%,
-    rgba(200, 160, 100, 0.8) 80%,
-    rgba(180, 140, 90, 0.6) 95%,
-    transparent 100%
-  );
-  z-index: 5;
-  /* Slight sag effect */
-  mask-image: linear-gradient(90deg, transparent 0%, black 4%, black 96%, transparent 100%);
-  -webkit-mask-image: linear-gradient(90deg, transparent 0%, black 4%, black 96%, transparent 100%);
-}
-
-.clothesline-rope::after {
-  content: '';
-  position: absolute;
-  top: 0; left: 0; right: 0;
-  height: 1px;
-  background: rgba(255, 255, 255, 0.1);
-}
-
-/* ─── Track & Slides ─── */
+/* ── 트랙 ── */
 #proj-track-wrap {
   position: absolute;
-  top: 60px; left: 0; right: 0; bottom: 6px;
+  inset: 0;
   overflow: hidden;
-  z-index: 4;
+  z-index: 5;
 }
 
 #proj-track {
   display: flex;
   height: 100%;
   will-change: transform;
-  transition: transform 0.02s linear;
 }
 
+/* ── 각 슬라이드 (평행사변형 프레임) ── */
 .proj-slide {
   flex-shrink: 0;
   width: 100vw;
   height: 100%;
-  display: flex;
-  align-items: flex-start;
-  justify-content: center;
-  padding-top: 55px; /* rope at top:110px, track starts at 60px => 50px from track top */
-}
-
-/* ─── Hanging Card Assembly ─── */
-.hang-assembly {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  transform-origin: top center;
-  transition: transform 0.05s linear;
-  /* Idle gentle sway */
-  animation: idleSway 4s ease-in-out infinite;
-}
-
-@keyframes idleSway {
-  0%, 100% { transform: rotate(0deg); }
-  25% { transform: rotate(0.8deg); }
-  75% { transform: rotate(-0.8deg); }
-}
-
-.hang-assembly:nth-child(2n) {
-  animation-delay: -1s;
-  animation-duration: 4.5s;
-}
-
-.hang-assembly:nth-child(3n) {
-  animation-delay: -2.2s;
-  animation-duration: 3.8s;
-}
-
-/* ─── Clip / Pin ─── */
-.hang-clip {
-  width: 28px;
-  height: 36px;
-  position: relative;
-  z-index: 6;
-  margin-bottom: -4px;
-}
-
-/* Clothespin shape */
-.hang-clip::before {
-  content: '';
-  position: absolute;
-  top: 0; left: 50%;
-  transform: translateX(-50%);
-  width: 12px;
-  height: 24px;
-  background: linear-gradient(180deg, #d4a55a, #b8894a);
-  border-radius: 4px 4px 2px 2px;
-  border: 1px solid rgba(0, 0, 0, 0.2);
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
-}
-
-/* Pin metal ring */
-.hang-clip::after {
-  content: '';
-  position: absolute;
-  top: -4px; left: 50%;
-  transform: translateX(-50%);
-  width: 10px;
-  height: 10px;
-  border: 2px solid rgba(200, 200, 200, 0.7);
-  border-radius: 50%;
-  background: transparent;
-}
-
-/* ─── String from pin to card ─── */
-.hang-string {
-  width: 2px;
-  height: 10px;
-  background: linear-gradient(180deg, rgba(180, 140, 90, 0.8), rgba(180, 140, 90, 0.3));
-}
-
-/* ─── The Project Card ─── */
-.hang-card {
-  width: clamp(320px, 52vw, 620px);
-  background: #fff;
-  border-radius: 14px;
-  overflow: hidden;
-  box-shadow:
-    0 20px 60px rgba(0, 0, 0, 0.35),
-    0 0 0 1px rgba(255, 255, 255, 0.05);
-  display: flex;
-  flex-direction: row;
-  transition: box-shadow 0.3s ease;
-}
-
-.hang-card:hover {
-  box-shadow:
-    0 28px 80px rgba(0, 0, 0, 0.45),
-    0 0 0 1px rgba(255, 255, 255, 0.08),
-    0 0 40px rgba(58, 159, 213, 0.1);
-}
-
-/* Card image/emoji side */
-.hc-visual {
-  flex-shrink: 0;
-  width: 40%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  gap: 14px;
-  padding: 40px 24px;
   position: relative;
   overflow: hidden;
+  clip-path: polygon(6% 0, 100% 0, 94% 100%, 0 100%);
+  margin-left: -6vw;
 }
 
-.hc-visual::before {
+.proj-slide:first-child {
+  clip-path: polygon(0 0, 100% 0, 94% 100%, 0 100%);
+  margin-left: 0;
+}
+
+.proj-slide:last-child {
+  clip-path: polygon(6% 0, 100% 0, 100% 100%, 0 100%);
+}
+
+/* ── 콘텐츠 레이어 (배경+이미지+텍스트 = 전부) ──
+   프레임(clip)보다 크게 → 시차 이동 여유 확보
+   JS가 translate로 시차 이동 → 원근감 */
+.ps-content {
+  position: absolute;
+  top: -15vh;
+  left: -15vw;
+  width: calc(100% + 30vw);
+  height: calc(100% + 30vh);
+  display: flex;
+  align-items: center;
+  will-change: transform;
+}
+
+/* 광원 효과 */
+.ps-content::after {
   content: '';
   position: absolute; inset: 0;
-  background: radial-gradient(ellipse at 30% 30%, rgba(255,255,255,0.12) 0%, transparent 60%);
+  background: radial-gradient(ellipse at 30% 40%,
+    rgba(255,255,255,0.10) 0%, transparent 55%);
   pointer-events: none;
 }
 
-/* Decorative circles */
-.hc-visual::after {
-  content: '';
-  position: absolute;
-  width: 180px; height: 180px;
-  border: 2px solid rgba(255, 255, 255, 0.07);
-  border-radius: 50%;
-  bottom: -50px; right: -40px;
-  pointer-events: none;
-}
-
-.hc-emoji {
-  font-size: 68px;
-  position: relative;
-  z-index: 1;
-  filter: drop-shadow(0 6px 16px rgba(0, 0, 0, 0.2));
-}
-
-.hc-num {
-  font-family: 'Press Start 2P', monospace;
-  font-size: 11px;
-  color: rgba(255, 255, 255, 0.6);
-  background: rgba(0, 0, 0, 0.2);
-  padding: 5px 12px;
-  border-radius: 5px;
-  position: relative;
-  z-index: 1;
-}
-
-.hc-type-chips {
+/* ── 이미지 영역 (왼쪽) ── */
+.ps-img-area {
+  flex: 0 0 50%;
   display: flex;
-  gap: 6px;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
   position: relative;
   z-index: 1;
 }
 
-.hc-type-chip {
-  font-size: 10px;
-  font-weight: 600;
-  background: rgba(255, 255, 255, 0.15);
-  color: rgba(255, 255, 255, 0.9);
-  padding: 3px 10px;
-  border-radius: 4px;
-  border: 1px solid rgba(255, 255, 255, 0.2);
+.ps-img-inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  position: relative;
+  z-index: 1;
 }
 
-/* Card info side */
-.hc-info {
+/* ── 직선 세로 구분선 ── */
+.ps-divider {
+  width: 1px;
+  align-self: stretch;
+  background: rgba(255, 255, 255, 0.08);
+  flex-shrink: 0;
+}
+
+/* ── 텍스트 영역 (오른쪽) ── */
+.ps-info-area {
   flex: 1;
-  padding: 36px 40px;
+  padding: 0 5vw;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  gap: 16px;
+  position: relative;
+  z-index: 1;
+  background: rgba(10, 12, 26, 0.88);
+  align-self: stretch;
 }
 
-.hc-title {
-  font-size: clamp(18px, 2.2vw, 24px);
-  font-weight: 700;
-  line-height: 1.5;
-  color: var(--dark);
+/* ── 콘텐츠 요소들 ── */
+.ps-emoji {
+  font-size: clamp(72px, 10vw, 120px);
+  filter: drop-shadow(0 8px 24px rgba(0,0,0,0.40));
+  line-height: 1;
 }
 
-.hc-desc {
-  font-size: 14px;
-  line-height: 2;
-  color: var(--dark-soft);
+.ps-num {
+  font-family: 'Press Start 2P', monospace;
+  font-size: clamp(10px, 1.2vw, 13px);
+  color: rgba(255,255,255,0.55);
+  background: rgba(0,0,0,0.22);
+  padding: 6px 16px;
+  border-radius: 6px;
 }
 
-.hc-tags {
+.ps-type-chips {
   display: flex;
+  gap: 8px;
   flex-wrap: wrap;
-  gap: 7px;
+  justify-content: center;
 }
 
-.hc-tag {
+.ps-type-chip {
   font-size: 11px;
   font-weight: 600;
+  background: rgba(255,255,255,0.14);
+  color: rgba(255,255,255,0.9);
   padding: 4px 12px;
-  background: rgba(58, 159, 213, 0.1);
-  color: var(--blue);
   border-radius: 5px;
-  border: 1px solid rgba(58, 159, 213, 0.15);
+  border: 1px solid rgba(255,255,255,0.22);
 }
 
-.hc-status {
+.ps-label-mini {
   font-family: 'Press Start 2P', monospace;
   font-size: 8px;
-  color: var(--green);
+  color: var(--gold);
+  opacity: 0.7;
+  margin-bottom: 16px;
+  letter-spacing: 2px;
 }
 
-/* ─── Progress bar ─── */
+.ps-title {
+  font-size: clamp(22px, 2.8vw, 38px);
+  font-weight: 700;
+  color: #fff;
+  line-height: 1.35;
+  margin-bottom: 20px;
+}
+
+.ps-desc {
+  font-size: clamp(13px, 1.1vw, 15px);
+  line-height: 1.9;
+  color: rgba(255,255,255,0.62);
+  margin-bottom: 24px;
+  max-width: 480px;
+}
+
+.ps-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 28px;
+}
+
+.ps-tag {
+  font-size: 11px;
+  font-weight: 600;
+  padding: 5px 14px;
+  background: rgba(58,159,213,0.12);
+  color: var(--blue);
+  border-radius: 6px;
+  border: 1px solid rgba(58,159,213,0.2);
+}
+
+.ps-status {
+  font-family: 'Press Start 2P', monospace;
+  font-size: 8px;
+  color: #0dcc72;
+}
+
+/* ── 하단 진행 바 ── */
 .proj-bar-wrap {
   position: absolute;
   bottom: 0; left: 0; right: 0;
   height: 3px;
-  background: rgba(255, 255, 255, 0.05);
-  z-index: 11;
+  background: rgba(255,255,255,0.05);
+  z-index: 20;
 }
 
 #proj-bar {
@@ -373,4 +269,36 @@
   width: 0%;
   transition: width 0.1s linear;
   border-radius: 0 2px 2px 0;
+}
+
+/* ── 모바일 ── */
+@media (max-width: 768px) {
+  #projects-pin {
+    top: 0;
+    height: 100vh;
+  }
+  .proj-slide {
+    clip-path: none;
+    margin-left: 0;
+  }
+  .ps-content {
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    flex-direction: column;
+  }
+  .ps-img-area {
+    flex: 0 0 40%;
+  }
+  .ps-divider {
+    width: 100%;
+    height: 1px;
+    align-self: auto;
+  }
+  .ps-info-area {
+    flex: 1;
+    padding: 24px 20px;
+  }
+  .ps-title { font-size: 18px; }
+  .ps-desc  { font-size: 13px; }
 }

@@ -1,6 +1,7 @@
-/* ─────────────────────────────────────
-   12. PROJECTS — DATA + CLOTHESLINE SCROLL
-   책임 : 프로젝트 데이터 정의 및 수평 스크롤 빨랫줄 UI 구동
+﻿/* ─────────────────────────────────────
+   12. PROJECTS — 평행사변형 프레임 + 콘텐츠 시차
+   슬라이드 = clip-path 평행사변형, 콘텐츠 시차 이동
+   배경+이미지+텍스트 함께 이동 → 원근감
 ───────────────────────────────────── */
 (function initProjectsSection() {
 
@@ -63,7 +64,7 @@
     },
   ];
 
-  /* ─ 클로슬라인 수평 스크롤 초기화 ─ */
+  /* ─ DOM 요소 ─ */
   const zone  = document.getElementById('projects-zone');
   const pin   = document.getElementById('projects-pin');
   const track = document.getElementById('proj-track');
@@ -73,37 +74,39 @@
   if (!zone || !pin || !track) return;
 
   const N = PROJECTS.length;
+  const OVERLAP_RATIO = 0.06; // 6vw 겹침 (평행사변형 경계)
 
-  /* ─ Generate cards ─ */
+  /* ─ 슬라이드 생성 (프레임+콘텐츠 일체) ─ */
   PROJECTS.forEach((p, i) => {
-    const chips = p.types.map(t => `<span class="hc-type-chip">${t}</span>`).join('');
-    const tags  = p.tags.map(t => `<span class="hc-tag">${t}</span>`).join('');
+    const chips = p.types.map(t => `<span class="ps-type-chip">${t}</span>`).join('');
+    const tags  = p.tags.map(t => `<span class="ps-tag">${t}</span>`).join('');
 
     const slide = document.createElement('div');
     slide.className = 'proj-slide';
+    slide.style.zIndex = i + 1;
     slide.innerHTML = `
-      <div class="hang-assembly" data-idx="${i}">
-        <div class="hang-clip"></div>
-        <div class="hang-string"></div>
-        <div class="hang-card">
-          <div class="hc-visual" style="background:${p.bg};">
-            <div class="hc-type-chips">${chips}</div>
-            <span class="hc-emoji">${p.emoji}</span>
-            <span class="hc-num">${p.num}</span>
+      <div class="ps-content" style="background: ${p.bg};">
+        <div class="ps-img-area">
+          <div class="ps-img-inner">
+            <div class="ps-type-chips">${chips}</div>
+            <span class="ps-emoji">${p.emoji}</span>
+            <span class="ps-num">${p.num}</span>
           </div>
-          <div class="hc-info">
-            <div class="hc-title">${p.title}</div>
-            <div class="hc-desc">${p.desc}</div>
-            <div class="hc-tags">${tags}</div>
-            <div class="hc-status">${p.status}</div>
-          </div>
+        </div>
+        <div class="ps-divider"></div>
+        <div class="ps-info-area">
+          <p class="ps-label-mini">PROJECT · ${p.num}</p>
+          <h2 class="ps-title">${p.title}</h2>
+          <p class="ps-desc">${p.desc}</p>
+          <div class="ps-tags">${tags}</div>
+          <div class="ps-status">${p.status}</div>
         </div>
       </div>
     `;
     track.appendChild(slide);
   });
 
-  /* ─ Generate dots ─ */
+  /* ─ Dots 생성 ─ */
   if (dotsC) {
     for (let i = 0; i < N; i++) {
       const d = document.createElement('div');
@@ -112,69 +115,55 @@
     }
   }
   const allDots = dotsC ? dotsC.querySelectorAll('.pdot') : [];
-  const assemblies = track.querySelectorAll('.hang-assembly');
 
-  /* ─ Set zone height = (N slides) * 100vh ─ */
+  /* ─ Zone 높이 설정 ─ */
   function setZoneHeight() {
     zone.style.height = (N * 100) + 'vh';
   }
   setZoneHeight();
   window.addEventListener('resize', setZoneHeight);
 
-  /* ─ Scroll → horizontal translation + sway ─ */
-  let prevScroll = 0;
-  let velocity   = 0;
+  /* ─ 시차 대상 캐싱 ─ */
+  const contents = track.querySelectorAll('.ps-content');
 
+  /* ─ Scroll → 트랙 이동 + 콘텐츠 시차 ─ */
   function onScroll() {
     const zoneRect = zone.getBoundingClientRect();
-    const zoneTop  = -zoneRect.top;                      // scroll into zone
+    const zoneTop  = -zoneRect.top;
     const zoneH    = zone.offsetHeight - window.innerHeight;
     if (zoneH <= 0) return;
 
-    const progress = Math.max(0, Math.min(1, zoneTop / zoneH)); // 0→1
-    const totalShift = (N - 1) * window.innerWidth;
-    const tx = -progress * totalShift;
+    const progress = Math.max(0, Math.min(1, zoneTop / zoneH));
 
+    // 트랙 총 이동량 (6vw 겹침 고려)
+    const vw = window.innerWidth;
+    const overlap = vw * OVERLAP_RATIO;
+    const totalShift = (N - 1) * (vw - overlap);
+
+    // 트랙 이동 (프레임 = 스크롤 속도 100%)
+    const tx = -progress * totalShift;
     track.style.transform = `translateX(${tx}px)`;
 
-    /* Current card index */
-    const raw = progress * (N - 1);
-    const idx = Math.min(Math.round(raw), N - 1);
+    // 각 슬라이드 내부 콘텐츠 시차 이동
+    // offset: 0=정위치, +=오른쪽(접근중), -=왼쪽(지나감)
+    for (let i = 0; i < N; i++) {
+      const offset = progress * (N - 1) - i;
+      if (contents[i]) {
+        contents[i].style.transform =
+          `translate(${offset * 8}vw, ${-offset * 5}vh)`;
+      }
+    }
 
-    /* Update dots & counter */
+    /* 현재 카드 인덱스 */
+    const idx = Math.min(Math.round(progress * (N - 1)), N - 1);
+
+    /* Dots & counter 업데이트 */
     allDots.forEach((d, j) => d.classList.toggle('done', j <= idx));
     if (currC) currC.textContent = idx + 1;
-    if (bar) bar.style.width = (progress * 100).toFixed(1) + '%';
-
-    /* Scroll velocity → sway rotation */
-    const currScroll = window.scrollY;
-    const delta = currScroll - prevScroll;
-    velocity += (delta - velocity) * 0.2;        // smoothed velocity
-    prevScroll = currScroll;
-
-    const maxRotate = 6;  // degrees
-    const sway = Math.max(-maxRotate, Math.min(maxRotate, velocity * 0.15));
-
-    assemblies.forEach(a => {
-      a.style.transform = `rotate(${sway}deg)`;
-    });
+    if (bar)   bar.style.width = (progress * 100).toFixed(1) + '%';
   }
 
   window.addEventListener('scroll', onScroll, { passive: true });
   onScroll();
-
-  /* ─ Slowly return sway to 0 when not scrolling ─ */
-  let idleTimer = null;
-  window.addEventListener('scroll', () => {
-    clearTimeout(idleTimer);
-    idleTimer = setTimeout(() => {
-      velocity = 0;
-      assemblies.forEach(a => {
-        a.style.transition = 'transform 0.8s cubic-bezier(0.25,0.46,0.45,0.94)';
-        a.style.transform = 'rotate(0deg)';
-        setTimeout(() => { a.style.transition = 'transform 0.05s linear'; }, 850);
-      });
-    }, 120);
-  }, { passive: true });
 
 })();
