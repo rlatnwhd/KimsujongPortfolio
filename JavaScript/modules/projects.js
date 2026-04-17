@@ -185,10 +185,16 @@
     var zoneRect = zone.getBoundingClientRect();
     if (zoneRect.top > 10 || zoneRect.bottom < window.innerHeight - 10) return;
 
+    var maxX    = getMaxX();
+    var atStart = targetX <= 0      && e.deltaY < 0;  // 첫 카드 + 위 스크롤
+    var atEnd   = targetX >= maxX   && e.deltaY > 0;  // 마지막 카드 + 아래 스크롤
+
+    /* 경계 이탈 방향 → preventDefault 안 함 → 네이티브 스크롤로 다음 섹션 진입 */
+    if (atStart || atEnd) return;
+
     e.preventDefault();
 
-    var maxX = getMaxX();
-    targetX  = Math.max(0, Math.min(maxX, targetX + e.deltaY));
+    targetX = Math.max(0, Math.min(maxX, targetX + e.deltaY));
 
     /* Sync vertical scroll proxy so progress bar / dots stay consistent */
     var prog       = maxX > 0 ? targetX / maxX : 0;
