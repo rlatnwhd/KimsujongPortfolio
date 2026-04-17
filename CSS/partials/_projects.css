@@ -137,8 +137,9 @@
   flex: 0 0 50%;
   display: flex;
   flex-direction: column;
-  align-items: center;
+  align-items: flex-end;        /* 오른쪽(구분선 쪽)으로 붙임 */
   justify-content: center;
+  padding-right: 5vw;           /* 구분선과 간격 */
   position: relative;
   z-index: 1;
 }
@@ -146,10 +147,11 @@
 .ps-img-inner {
   display: flex;
   flex-direction: column;
-  align-items: center;
+  align-items: center;          /* 이모지/번호/칩은 가운데 정렬 유지 */
   gap: 20px;
   position: relative;
   z-index: 1;
+  text-align: center;
 }
 
 /* ── 직선 세로 구분선 ── */
