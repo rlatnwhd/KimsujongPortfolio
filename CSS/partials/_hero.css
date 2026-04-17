@@ -30,10 +30,17 @@
 }
 
 .hero-name {
-  font-size: clamp(72px, 15vw, 170px); font-weight: 700;
-  line-height: 1.0; margin-bottom: 12px; letter-spacing: -4px;
+  font-size: clamp(60px, 12vw, 140px); font-weight: 700;
+  line-height: 1.05; margin-bottom: 16px; letter-spacing: -2px;
 }
 .hero-name .accent { color: var(--accent); }
+
+/* 작은 이름 줄 */
+.hero-author {
+  font-family: 'Press Start 2P', monospace; font-size: 11px;
+  letter-spacing: 6px; color: var(--text-dim); margin-bottom: 24px;
+}
+.hero-author .accent { color: var(--accent); }
 
 /* 글자 래퍼: overflow hidden → 위에서 낙하하는 클리핑 효과 */
 .char-wrap {

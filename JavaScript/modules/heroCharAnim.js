@@ -17,6 +17,8 @@
   nameEl.childNodes.forEach(node => {
     if (node.nodeType === 3) {          // 텍스트 노드
       [...node.textContent].forEach(ch => parsed.push({ ch, accent: false }));
+    } else if (node.nodeType === 1 && node.tagName === 'BR') {  // <br> 태그
+      parsed.push({ br: true });
     } else if (node.nodeType === 1) {   // <span class="accent"> 등
       const isAccent = node.classList.contains('accent');
       [...node.textContent].forEach(ch => parsed.push({ ch, accent: isAccent }));
@@ -24,11 +26,14 @@
   });
 
   /* ── 2. HTML 재구성: 각 글자를 overflow:hidden 래퍼로 감싸기 ── */
-  nameEl.innerHTML = parsed.map((c, i) =>
-    `<span class="char-wrap" style="--ci:${i}">` +
-    `<span class="hero-char${c.accent ? ' accent' : ''}">${c.ch === ' ' ? '\u00a0' : c.ch}</span>` +
-    `</span>`
-  ).join('');
+  let ci = 0;
+  nameEl.innerHTML = parsed.map(c => {
+    if (c.br) return '<br>';
+    const idx = ci++;
+    return `<span class="char-wrap" style="--ci:${idx}">` +
+      `<span class="hero-char${c.accent ? ' accent' : ''}">${c.ch === ' ' ? '\u00a0' : c.ch}</span>` +
+      `</span>`;
+  }).join('');
 
   /* ── 3. reveal.js 중복 제어 방지 ─────────────────── */
   nameEl.classList.remove('reveal');
