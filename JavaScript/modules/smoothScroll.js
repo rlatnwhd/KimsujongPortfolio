@@ -1,39 +1,55 @@
-/* ─────────────────────────────────────
-   SMOOTH SCROLL — Lenis 관성만 (최소 설정)
-   책임 : 스크롤 관성(inertia) 효과만 제공
-          duration/easing 최소화, 과방향 없음
+﻿/* ─────────────────────────────────────
+   GLOBAL SMOOTH SCROLL — Pure Lerp (no library)
+   책임 : 전체 페이지 휠 스크롤에 관성(lerp) 적용
+          #projects-zone 내부는 projects.js 에 위임
+          앵커/키보드/터치 등 외부 스크롤은 즉시 동기화
 ───────────────────────────────────── */
-(function initSmoothScroll() {
-  if (typeof Lenis === 'undefined') return;
+(function initGlobalSmoothScroll() {
 
-  const lenis = new Lenis({
-    lerp: 0.12,             /* 관성만: 숫자 낮을수록 더 부드럽게 따라옴 */
-    wheelMultiplier: 1.0,
-    touchMultiplier: 1.2,
-    smooth: true,
-  });
+  var LERP     = 0.09;
+  var targetY  = window.scrollY;
+  var currentY = window.scrollY;
+  var rafId    = null;
+  var fromUs   = false;
 
-  /* GSAP ScrollTrigger 동기화 */
-  if (typeof gsap !== 'undefined') {
-    if (typeof ScrollTrigger !== 'undefined') {
-      lenis.on('scroll', () => ScrollTrigger.update());
-    }
-    gsap.ticker.add(time => { lenis.raf(time * 1000); });
-    gsap.ticker.lagSmoothing(0);
-  } else {
-    function raf(time) { lenis.raf(time); requestAnimationFrame(raf); }
-    requestAnimationFrame(raf);
+  function maxY() {
+    return document.documentElement.scrollHeight - window.innerHeight;
   }
 
-  /* 앵커 링크 클릭 시 Lenis로 부드럽게 이동 */
-  document.querySelectorAll('a[href^="#"]').forEach(a => {
-    a.addEventListener('click', e => {
-      const target = document.querySelector(a.getAttribute('href'));
-      if (!target) return;
-      e.preventDefault();
-      lenis.scrollTo(target, { offset: -96, duration: 1.0 });
-    });
-  });
+  /* rAF lerp tick */
+  function tick() {
+    currentY += (targetY - currentY) * LERP;
+    var done = Math.abs(targetY - currentY) < 0.5;
+    if (done) currentY = targetY;
 
-  window.__lenis = lenis;
+    fromUs = true;
+    window.scrollTo(0, currentY);
+    fromUs = false;
+
+    if (done) { rafId = null; return; }
+    rafId = requestAnimationFrame(tick);
+  }
+
+  function schedule() {
+    if (!rafId) rafId = requestAnimationFrame(tick);
+  }
+
+  /* Wheel: #projects-zone 는 projects.js 에 위임 */
+  document.addEventListener('wheel', function(e) {
+    if (e.target.closest && e.target.closest('#projects-zone')) return;
+
+    e.preventDefault();
+    targetY = Math.max(0, Math.min(maxY(), targetY + e.deltaY));
+    schedule();
+  }, { passive: false });
+
+  /* 외부 스크롤 (앵커, 키보드, 터치, projects.js scrollTo) → 즉시 동기화 */
+  window.addEventListener('scroll', function() {
+    if (fromUs) return;
+    var sy = window.scrollY;
+    targetY  = sy;
+    currentY = sy;
+    if (rafId) { cancelAnimationFrame(rafId); rafId = null; }
+  }, { passive: true });
+
 })();
