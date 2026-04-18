@@ -2,7 +2,7 @@
    ACTIVITY
    책임 : 활동 타임라인 스타일
 ═══════════════════════════════════ */
-#activity { background: rgba(255,255,255,0.15); }
+#activity { background: #e8f4fc; }
 .act-timeline { max-width: 780px; display: flex; flex-direction: column; gap: 0; position: relative; }
 .act-timeline::before {
   content: ''; position: absolute; left: 29px; top: 0; bottom: 0; width: 2px;

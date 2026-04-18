@@ -18,9 +18,14 @@
   height: 100%;
 }
 
-/* ── 하단: 다크 → 하늘 (뒤집기) ── */
+/* ── 상단: 웨이브 뒤 투명 (sky 고정 배경이 보임) ── */
+.wave-top {
+  background: transparent;
+}
+
+/* ── 하단: 웨이브 뒤 = 다크(projects 섹션) 색 ── */
 .wave-bottom {
-  transform: scaleY(-1);
+  background: #0a0c1a;
 }
 
 /* ── 샘플과 동일한 애니메이션 ── */
