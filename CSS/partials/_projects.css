@@ -11,6 +11,7 @@
 #projects-zone {
   position: relative;
   z-index: 1;
+  background: #0a0c1a;
 }
 
 /* ── Sticky viewport ── */
