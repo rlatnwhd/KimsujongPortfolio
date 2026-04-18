@@ -1,65 +1,48 @@
 /* ═══════════════════════════════════
-   WAVE DIVIDERS — Projects 섹션 진입/탈출
-   2-path animated SVG wave, translateX 무한반복
-   opacity는 projects.js 에서 JS로 제어
+   WAVE DIVIDERS — 샘플 gentle-wave 방식
+   (@keyframes move-forever, CSS only)
 ═══════════════════════════════════ */
 
 .wave-divider {
   position: relative;
   z-index: 2;
   width: 100%;
-  height: 80px;
+  height: 10vmin;
   overflow: hidden;
-  opacity: 0;
-  transition: opacity 0.5s ease;
   pointer-events: none;
 }
 
 .wave-divider svg {
   display: block;
-  width: 200%;
+  width: 100%;
   height: 100%;
 }
 
-/* ── 상단: 하늘 → 다크 (프로젝트 배경색 #0a0c1a) ── */
-.wave-top {
-  margin-bottom: -2px;
-}
-.wave-top .wave-p1 { fill: #0a0c1a; }
-.wave-top .wave-p2 { fill: rgba(10, 12, 26, 0.55); }
-
 /* ── 하단: 다크 → 하늘 (뒤집기) ── */
 .wave-bottom {
-  margin-top: -2px;
   transform: scaleY(-1);
 }
-.wave-bottom .wave-p1 { fill: #0a0c1a; }
-.wave-bottom .wave-p2 { fill: rgba(10, 12, 26, 0.55); }
 
-/* ── Wave 이동 애니메이션 ── */
-.wave-path {
-  will-change: transform;
+/* ── 샘플과 동일한 애니메이션 ── */
+.parallax > use {
+  animation: move-forever 12s linear infinite;
 }
 
-.wave-p1 {
-  animation: waveSlide 7s linear infinite;
+.parallax > use:nth-child(1) {
+  animation-delay: -2s;
 }
 
-.wave-p2 {
-  animation: waveSlideReverse 9s linear infinite;
+.parallax > use:nth-child(2) {
+  animation-delay: -2s;
+  animation-duration: 5s;
 }
 
-@keyframes waveSlide {
-  0%   { transform: translateX(0); }
-  100% { transform: translateX(-50%); }
+.parallax > use:nth-child(3) {
+  animation-delay: -4s;
+  animation-duration: 3s;
 }
 
-@keyframes waveSlideReverse {
-  0%   { transform: translateX(-50%); }
-  100% { transform: translateX(0); }
-}
-
-/* ── 가시 상태 (JS가 토글) ── */
-.wave-divider.visible {
-  opacity: 1;
+@keyframes move-forever {
+  0%   { transform: translate(-90px, 0%); }
+  100% { transform: translate(85px,  0%); }
 }

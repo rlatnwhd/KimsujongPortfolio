@@ -62,10 +62,6 @@
   const BG_SPEED   = 0.35;   // background parallax 35%
   const FR_SPEED   = 0.12;   // content frame parallax 12%
 
-  /* ─ Wave dividers ─ */
-  var waveTop    = document.getElementById('wave-top');
-  var waveBottom = document.getElementById('wave-bottom');
-
   /* ─ Build cards (position: absolute) ─ */
   PROJECTS.forEach((p, i) => {
     const chips = p.types.map(t => '<span class="ps-type-chip">' + t + '</span>').join('');
@@ -156,13 +152,6 @@
     allDots.forEach(function(d, j) { d.classList.toggle('done', j <= idx); });
     if (currC) currC.textContent = idx + 1;
     if (bar)   bar.style.width = (prog * 100).toFixed(1) + '%';
-
-    /* ─ Wave divider visibility ─
-       진입 중(prog < 0.05) → wave-top 보임
-       탈출 중(prog > 0.95) → wave-bottom 보임
-       그 사이 → 둘 다 숨김 */
-    if (waveTop)    waveTop.classList.toggle('visible', prog < 0.05);
-    if (waveBottom) waveBottom.classList.toggle('visible', prog > 0.95);
   }
 
   /* ─ rAF lerp tick ─ */
@@ -188,18 +177,6 @@
   window.addEventListener('scroll', function() {
     targetX = scrollToTargetX();
     scheduleRaf();
-
-    /* wave 가시성: 프로젝트 구역 진입 직전/탈출 직후에도 표시 */
-    var zRect = zone.getBoundingClientRect();
-    var vh    = window.innerHeight;
-    /* 구역이 아직 화면 아래에 있을 때 — 접근 중이면 wave-top 표시 */
-    if (zRect.top > 0 && zRect.top < vh) {
-      if (waveTop) waveTop.classList.add('visible');
-    }
-    /* 구역이 화면 위로 지나간 뒤 — wave-bottom 표시 */
-    if (zRect.bottom > 0 && zRect.bottom < vh) {
-      if (waveBottom) waveBottom.classList.add('visible');
-    }
   }, { passive: true });
 
   /* ─ Wheel on pin: preventDefault + deltaY → targetX ─ */
