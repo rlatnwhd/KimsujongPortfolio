@@ -39,6 +39,9 @@
 /* 11. Projects - Clothesline Horizontal Scroll */
 @import url('./partials/_projects.css');
 
+/* 11b. Wave Dividers */
+@import url('./partials/_waves.css');
+
 /* 12. Activity */
 @import url('./partials/_activity.css');
 

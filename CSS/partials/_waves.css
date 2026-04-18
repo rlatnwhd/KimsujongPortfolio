@@ -1,0 +1,65 @@
+/* ═══════════════════════════════════
+   WAVE DIVIDERS — Projects 섹션 진입/탈출
+   2-path animated SVG wave, translateX 무한반복
+   opacity는 projects.js 에서 JS로 제어
+═══════════════════════════════════ */
+
+.wave-divider {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  height: 80px;
+  overflow: hidden;
+  opacity: 0;
+  transition: opacity 0.5s ease;
+  pointer-events: none;
+}
+
+.wave-divider svg {
+  display: block;
+  width: 200%;
+  height: 100%;
+}
+
+/* ── 상단: 하늘 → 다크 (프로젝트 배경색 #0a0c1a) ── */
+.wave-top {
+  margin-bottom: -2px;
+}
+.wave-top .wave-p1 { fill: #0a0c1a; }
+.wave-top .wave-p2 { fill: rgba(10, 12, 26, 0.55); }
+
+/* ── 하단: 다크 → 하늘 (뒤집기) ── */
+.wave-bottom {
+  margin-top: -2px;
+  transform: scaleY(-1);
+}
+.wave-bottom .wave-p1 { fill: #0a0c1a; }
+.wave-bottom .wave-p2 { fill: rgba(10, 12, 26, 0.55); }
+
+/* ── Wave 이동 애니메이션 ── */
+.wave-path {
+  will-change: transform;
+}
+
+.wave-p1 {
+  animation: waveSlide 7s linear infinite;
+}
+
+.wave-p2 {
+  animation: waveSlideReverse 9s linear infinite;
+}
+
+@keyframes waveSlide {
+  0%   { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+@keyframes waveSlideReverse {
+  0%   { transform: translateX(-50%); }
+  100% { transform: translateX(0); }
+}
+
+/* ── 가시 상태 (JS가 토글) ── */
+.wave-divider.visible {
+  opacity: 1;
+}
