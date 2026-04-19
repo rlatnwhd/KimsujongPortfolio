@@ -23,6 +23,12 @@
   background: transparent;
 }
 
+/* ── About 상단: sky 배경 위에 하였게 wave가 떠오르는 효과 ── */
+.wave-about-top {
+  background: transparent;
+  margin-bottom: -2px; /* about 세션과 틈새없이 연결 */
+}
+
 /* ── 하단: 웨이브 뒤 = 다크(projects 섹션) 색 ── */
 .wave-bottom {
   background: #0a0c1a;
