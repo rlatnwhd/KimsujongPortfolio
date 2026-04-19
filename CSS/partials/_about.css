@@ -1,32 +1,113 @@
 /* ═══════════════════════════════════
    ABOUT
-   책임 : About 섹션 카드, 가치 목록, 통계 행 스타일
 ═══════════════════════════════════ */
 #about { background: rgba(255,255,255,0.2); }
-.about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
-.about-card {
-  background: var(--card); border-radius: var(--radius); padding: 40px;
-  box-shadow: 0 8px 32px var(--shadow); border: 1px solid var(--border);
-  transition: box-shadow var(--transition), border-color var(--transition);
-  will-change: transform;
+
+/* ── 2열 레이아웃 ── */
+.about-layout {
+  display: grid;
+  grid-template-columns: 260px 1fr;
+  gap: 52px;
+  align-items: center;
+  margin-top: 12px;
 }
-.about-card:hover { box-shadow: 0 20px 52px var(--shadow-strong); border-color: var(--accent-border); }
-.about-card h3 {
-  font-size: 17px; font-weight: 700; color: var(--accent);
-  margin-bottom: 20px; display: flex; align-items: center; gap: 12px;
+
+/* ── 왼쪽: 사진 영역 ── */
+.about-photo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
 }
-.about-card h3 .icon {
-  width: 36px; height: 36px; background: var(--accent-dim); border-radius: 10px;
-  display: flex; align-items: center; justify-content: center; font-size: 18px;
+
+.about-photo-frame {
+  width: 210px;
+  height: 270px;
+  border-radius: 20px;
+  overflow: hidden;
+  border: 2px solid var(--accent-border);
+  box-shadow: 0 16px 48px var(--shadow);
+  background: var(--card);
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
-.about-card p { font-size: 15px; line-height: 2.05; color: var(--text-muted); }
-.about-card .hi { color: var(--accent); font-weight: 600; }
-.value-list { display: flex; flex-direction: column; gap: 13px; }
-.value-list li {
-  font-size: 14.5px; line-height: 1.8; display: flex; gap: 12px;
-  align-items: flex-start; color: var(--text-muted);
+
+.about-photo-placeholder {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  color: var(--text-dim);
 }
-.value-list li::before { content: '▸'; color: var(--accent); font-size: 15px; flex-shrink: 0; margin-top: 2px; }
+
+.about-photo-icon { font-size: 52px; }
+.about-photo-label { font-size: 12px; letter-spacing: 2px; text-transform: uppercase; }
+
+.about-name-badge {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+}
+
+.about-name-kr {
+  font-size: 21px;
+  font-weight: 700;
+  color: var(--text);
+  letter-spacing: 4px;
+}
+
+.about-name-en {
+  font-size: 12px;
+  color: var(--text-muted);
+  letter-spacing: 2px;
+}
+
+/* ── 오른쪽: 소개 카드 ── */
+.about-bio {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 44px 48px;
+  box-shadow: 0 8px 32px var(--shadow);
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+}
+
+.about-bio-text {
+  font-size: 15.5px;
+  line-height: 2.0;
+  color: var(--text-muted);
+}
+
+.ab-hi {
+  color: var(--accent);
+  font-weight: 600;
+}
+
+/* ── 태그 필 ── */
+.about-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 6px;
+}
+
+.ab-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 16px;
+  border-radius: 999px;
+  background: var(--accent-dim);
+  border: 1px solid var(--accent-border);
+  color: var(--accent);
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+}
 
 /* Stats row */
 .stats-row {

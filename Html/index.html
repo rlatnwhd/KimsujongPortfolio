@@ -96,26 +96,50 @@
   <div class="container">
     <p class="sec-label reveal">— 01</p>
     <h2 class="sec-title reveal">About <span class="accent">Me</span></h2>
-    <div class="about-grid">
-      <div class="about-card tilt-card reveal">
-        <h3><span class="icon">🙋</span> 소개</h3>
-        <p>
-          안녕하세요! 사용 경험을 진지하게 고민하는 프론트엔드 개발자 <span class="hi">김수종</span>입니다.<br><br>
-          단순히 작동하는 코드를 넘어, 실제로 사용할 때 느껴지는 <span class="hi">경험의 질</span>을 함께 설계합니다.<br><br>
-          2D 게임과 인터랙티브 웹에서 영감을 받아, 재미있고 직관적인 인터페이스 만드는 것을 좋아합니다.
+
+    <div class="about-layout reveal">
+
+      <!-- 왼쪽: 증명사진 영역 -->
+      <div class="about-photo">
+        <div class="about-photo-frame">
+          <div class="about-photo-placeholder">
+            <span class="about-photo-icon">👤</span>
+            <span class="about-photo-label">Photo</span>
+          </div>
+        </div>
+        <div class="about-name-badge">
+          <span class="about-name-kr">김수종</span>
+          <span class="about-name-en">Kim Sujong</span>
+        </div>
+      </div>
+
+      <!-- 오른쪽: 소개 텍스트 -->
+      <div class="about-bio">
+        <p class="about-bio-text">
+          Flutter를 중심으로 앱 개발을 공부하며<br>
+          성장하고 있는 <span class="ab-hi">김수종</span>입니다.
         </p>
+        <p class="about-bio-text">
+          모바일 앱을 비롯해 웹, 게임 등 다양한 분야에 관심을 가지고 있으며,<br>
+          사용자가 직관적으로 이해하고 편하게 사용할 수 있는<br>
+          <span class="ab-hi">UI를 만드는 데</span>에 흥미를 느낍니다.
+        </p>
+        <p class="about-bio-text">
+          문제를 스스로 해결하는 경험을 중요하게 여기며,<br>
+          코드의 가독성과 유지보수를 고려하는<br>
+          <span class="ab-hi">개발 습관</span>을 기르기 위해 꾸준히 노력하고 있습니다.
+        </p>
+
+        <div class="about-tags">
+          <span class="ab-tag">📱 Flutter</span>
+          <span class="ab-tag">🌐 Web Frontend</span>
+          <span class="ab-tag">🎮 Game Dev</span>
+          <span class="ab-tag">✨ UI/UX</span>
+          <span class="ab-tag">📖 Clean Code</span>
+        </div>
       </div>
-      <div class="about-card tilt-card reveal reveal-delay-2">
-        <h3><span class="icon">⚡</span> 핵심 가치</h3>
-        <ul class="value-list">
-          <li>사용성과 심미성을 동시에 추구하는 개발</li>
-          <li>애니메이션과 인터랙션으로 생동감 있는 UI 구현</li>
-          <li>반응형 웹 개발에 대한 높은 관심과 열정</li>
-          <li>게임적 요소를 통한 독창적 사용자 경험 제공</li>
-          <li>꾸준한 학습과 성장을 즐기는 개발자</li>
-        </ul>
-      </div>
-    </div>
+
+    </div><!-- /.about-layout -->
 
     <!-- Stats row -->
     <div class="stats-row reveal">
