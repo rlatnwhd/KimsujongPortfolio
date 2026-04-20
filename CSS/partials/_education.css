@@ -1,25 +1,125 @@
 /* ═══════════════════════════════════
    EDUCATION
-   책임 : 학력 카드 스타일
 ═══════════════════════════════════ */
-.edu-card {
-  max-width: 680px; background: var(--card); border-radius: var(--radius);
-  padding: 40px 48px; box-shadow: 0 8px 32px var(--shadow);
-  border: 1px solid var(--border);
-  display: flex; align-items: center; gap: 32px;
-  will-change: transform;
-  transition: box-shadow var(--transition), border-color var(--transition);
+
+/* 전체 레이아웃 */
+.edu-layout {
+  display: flex;
+  gap: 40px;
+  align-items: stretch;
+  max-width: 900px;
+  margin: 48px auto 0;
 }
-.edu-card:hover { box-shadow: 0 20px 52px var(--shadow-strong); border-color: var(--accent-border); }
-.edu-icon {
-  font-size: 48px; flex-shrink: 0; width: 80px; height: 80px;
-  background: var(--accent-dim); border-radius: 20px;
-  display: flex; align-items: center; justify-content: center;
+
+/* ── 좌측: 로고 박스 ── */
+.edu-logo-box {
+  flex: 0 0 260px;
+  background: rgba(255,255,255,0.55);
+  border-radius: 24px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 0 24px 32px;
+  text-align: center;
+  overflow: hidden;
+  border: 1px solid rgba(255,255,255,0.9);
+  box-shadow: 0 4px 28px rgba(58,159,213,0.12);
 }
-.edu-info h3 { font-size: 18px; font-weight: 700; margin-bottom: 12px; }
-.edu-info p { font-size: 15px; line-height: 2; color: var(--text-muted); }
-.edu-tag {
-  display: inline-block; margin-top: 14px; font-size: 11px; font-weight: 600;
-  background: var(--accent-dim); color: var(--accent); padding: 6px 14px; border-radius: 6px;
-  border: 1px solid var(--accent-border);
+.edu-logo-box::before {
+  content: '';
+  width: 100%;
+  height: 6px;
+  background: linear-gradient(90deg, var(--accent), #7ec8e3);
+  flex-shrink: 0;
+  margin-bottom: 32px;
+}
+.edu-logo-img {
+  width: 120px;
+  height: 120px;
+  object-fit: contain;
+  margin-bottom: 20px;
+  filter: drop-shadow(0 4px 12px rgba(0,0,0,0.12));
+}
+.edu-logo-name {
+  font-family: 'Mulmaru', sans-serif;
+  font-size: 22px;
+  font-weight: 700;
+  color: #1a1a2e;
+  margin-bottom: 8px;
+  letter-spacing: 1px;
+}
+.edu-logo-dept {
+  font-size: 14px;
+  color: var(--text-muted);
+  line-height: 1.5;
+}
+
+/* ── 우측: 정보 행 ── */
+.edu-info-rows {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.edu-row {
+  display: flex;
+  align-items: baseline;
+  gap: 24px;
+  padding: 20px 0;
+  border-bottom: 1px solid rgba(0,0,0,0.08);
+}
+.edu-row:last-child {
+  border-bottom: none;
+}
+
+.edu-row-label {
+  flex: 0 0 140px;
+  font-size: 15px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--text-muted);
+}
+.edu-row-value {
+  font-size: 22px;
+  font-weight: 700;
+  color: #1a1a2e;
+}
+
+/* STATUS pill */
+.edu-pill {
+  display: inline-block;
+  font-size: 14px;
+  font-weight: 600;
+  color: #2e7d32;
+  background: rgba(46,125,50,0.08);
+  border: 1px solid rgba(46,125,50,0.25);
+  border-radius: 20px;
+  padding: 4px 16px;
+}
+
+/* GPA */
+.edu-gpa-num {
+  font-size: 24px;
+  font-weight: 700;
+  color: var(--accent);
+}
+.edu-gpa-max {
+  font-size: 15px;
+  font-weight: 400;
+  color: var(--text-muted);
+}
+.edu-gpa-bar {
+  margin-top: 8px;
+  width: 100%;
+  height: 4px;
+  background: rgba(0,0,0,0.06);
+  border-radius: 2px;
+  overflow: hidden;
+}
+.edu-gpa-fill {
+  width: 0%;
+  height: 100%;
+  background: var(--accent);
+  border-radius: 2px;
 }

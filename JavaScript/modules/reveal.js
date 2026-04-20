@@ -90,16 +90,35 @@
     );
   });
 
-  /* ── 6. edu-card: 왼쪽에서 Y축 회전하며 날아오기 ─── */
-  gsap.utils.toArray('.edu-card').forEach(el => {
+  /* ── 6. Education: GSAP ScrollTrigger scrub ─── */
+  // 로고 박스
+  const eduLogoBox = document.querySelector('#education .edu-logo-box');
+  if (eduLogoBox) {
+    eduLogoBox.style.opacity = '0';
+    gsap.fromTo(eduLogoBox,
+      { x: -60, opacity: 0, scale: 0.92 },
+      { x: 0, opacity: 1, scale: 1,
+        scrollTrigger: { trigger: eduLogoBox, start: 'top 92%', end: 'top 62%', scrub: 1 } }
+    );
+  }
+  // 정보 행 슬라이드
+  gsap.utils.toArray('#education .edu-row').forEach((el, i) => {
     el.style.opacity = '0';
     gsap.fromTo(el,
-      { x: -200, opacity: 0, rotationY: -20, scale: 0.88,
-        transformPerspective: 1000 },
-      { x: 0, opacity: 1, rotationY: 0, scale: 1,
-        scrollTrigger: { trigger: el, start: 'top 92%', end: 'top 67%', scrub: 1 } }
+      { x: 48, opacity: 0 },
+      { x: 0, opacity: 1,
+        scrollTrigger: { trigger: el, start: 'top 95%', end: `top ${72 - i * 4}%`, scrub: 1 } }
     );
   });
+  // GPA 바
+  const gpaFill = document.querySelector('#education .edu-gpa-fill');
+  if (gpaFill) {
+    gsap.fromTo(gpaFill,
+      { width: '0%' },
+      { width: '97.8%',
+        scrollTrigger: { trigger: gpaFill, start: 'top 90%', end: 'top 58%', scrub: 1 } }
+    );
+  }
 
   /* ── 7. skill-group: 오른쪽에서 Y축 회전 + sr-active ─── */
   gsap.utils.toArray('.skill-group').forEach((el, i) => {
