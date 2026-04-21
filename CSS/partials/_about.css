@@ -2,7 +2,7 @@
    ABOUT
 ═══════════════════════════════════ */
 #about {
-  background: transparent;
+  background: rgba(255,255,255,0.55);
   padding-bottom: 80px;
   overflow: hidden;
 }

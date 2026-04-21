@@ -133,16 +133,327 @@
   width: calc(100% + 30vw);
   height: 100%;
   display: flex;
-  align-items: center;
+  align-items: stretch;
   will-change: transform;
 }
 
-/* ── Image area (left half of frame) ── */
+/* ══ 좌측: 이미지 구역 ══ */
 .ps-img-area {
-  flex: 0 0 50%;
+  flex: 0 0 48%;
   display: flex;
   flex-direction: column;
-  align-items: flex-end;
+  height: 100%;
+  padding: 75px 60px 25px 300px;  /* top: proj-header(48px) + 20px */
+  gap: 14px;
+  overflow: hidden;
+  position: relative;
+  z-index: 1;
+  box-sizing: border-box;
+}
+
+/* 대표 이미지 */
+.ps-main-img-wrap {
+  width: 100%;
+  overflow: hidden;
+  background: transparent;
+  flex: 1.5;
+  min-height: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.ps-main-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;       /* 기본: 웹/게임 → 가로 채우기 */
+  display: block;
+  pointer-events: none;
+}
+/* 앱(모바일) 프로젝트 → 세로 채우기, 배경 없음 */
+.ps-main-img-wrap.ps-img-app {
+  background: transparent;
+}
+.ps-main-img-wrap.ps-img-app .ps-main-img {
+  width: auto;
+  height: 100%;
+  object-fit: contain;
+}
+.ps-main-img-wrap.ps-img-fallback {
+  background: rgba(0,0,0,0.14);
+}
+.ps-main-img-wrap.ps-img-fallback::after {
+  content: attr(data-num);
+  font-family: 'Press Start 2P', monospace;
+  font-size: 36px;
+  color: rgba(255,255,255,0.25);
+}
+
+/* 화면 구성 */
+.ps-screen-section {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  flex: 2;
+  min-height: 0;
+}
+.ps-screen-label {
+  font-size: 20px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  margin: 0 0 4px;
+}
+.ps-screen-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  gap: 8px;
+  flex: 1;
+  min-height: 0;
+}
+.ps-screen-cell {
+  border-radius: 8px;
+  overflow: hidden;
+  background: rgba(255,255,255,0.08);
+  border: 1px solid rgba(255,255,255,0.15);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 60px;
+  cursor: pointer;
+}
+.ps-screen-cell img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+/* 앱형 화면 구성 셀 — 세로 기준 */
+.ps-screen-cell.ps-cell-app {
+  background: #ffffff;
+}
+.ps-screen-cell.ps-cell-app img {
+  width: auto;
+  height: 100%;
+  object-fit: contain;
+}
+.ps-screen-cell.ps-img-fallback {
+  background: rgba(0,0,0,0.18);
+}
+
+/* 버튼 영역 */
+.ps-btn-area {
+  display: flex;
+  gap: 10px;
+  flex: 0 0 56px;
+  align-items: center;
+}
+.ps-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: 42px;
+  flex: 1;
+  border-radius: 8px;
+  border: 2px solid;
+  background: transparent;
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-decoration: none;
+  transition: background 0.25s ease, color 0.25s ease;
+  cursor: pointer;
+}
+/* hover: 흰배경 프로젝트(1,5번) → 검정 채우기 */
+.ps-btn-dark-hover:hover {
+  background: #000000 !important;
+  color: #ffffff !important;
+}
+/* hover: 색배경 프로젝트(2,3,4번) → 흰색 채우기 */
+.ps-btn-light-hover:hover {
+  background: #ffffff !important;
+  color: #000000 !important;
+}
+.ps-btn-full {
+  flex: 1 1 100%;
+  width: 100%;
+}
+
+/* ── 우측: 텍스트 구역 ── */
+.ps-info-area {
+  flex: 1;
+  padding: 75px 300px 60px 60px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  position: relative;
+  height: 100%;
+  z-index: 1;
+  background: #0a0c1a;
+  align-self: stretch;
+  overflow: hidden;
+  box-sizing: border-box;
+}
+.ps-info-area-inner {
+  overflow-y: auto;
+  scrollbar-width: none;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  text-align: left;
+}
+.ps-info-area::-webkit-scrollbar { display: none; }
+
+.ps-label-mini {
+  font-family: 'Press Start 2P', monospace;
+  font-size: 14px;
+  color: var(--gold);
+  opacity: 0.7;
+  margin-bottom: 12px;
+  letter-spacing: 2px;
+}
+
+.ps-title {
+  font-family: 'Mulmaru', sans-serif;
+  font-size: 52px;
+  font-weight: 700;
+  color: #fff;
+  line-height: 1.4;
+  margin-bottom: 20px;
+}
+
+/* 스펙 5열 행 */
+.ps-spec-row {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 0;
+  margin-bottom: 18px;
+  min-height: 110px;  /* 사용 기술 최대 3줄 기준 고정 → Overview 위치 일정 */
+  align-content: start;
+}
+.ps-spec-col {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  padding-right: 12px;
+}
+.ps-spec-head {
+  font-size: 18px;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  color: #ffffff;
+  text-transform: uppercase;
+}
+.ps-spec-val {
+  font-size: 15px;
+  font-weight: 600;
+  color: rgba(255,255,255,0.75);
+  line-height: 1.7;
+}
+.ps-spec-tech span,
+.ps-spec-contrib span,
+.ps-spec-type span {
+  display: block;
+}
+
+/* 팀/개인은 5열 그리드 안에 포함 — pill 미사용 */
+
+/* Overview */
+.ps-overview {
+  margin-bottom: 16px;
+}
+.ps-overview-head {
+  font-family: 'Mulmaru', 'Noto Sans KR', sans-serif;
+  font-size: 20px;
+  font-weight: 700;
+  color: #ffffff;
+  margin-bottom: 8px;
+  letter-spacing: 1px;
+}
+.ps-overview ul {
+  list-style: disc;
+  padding-left: 20px;
+  margin: 0;
+}
+.ps-overview ul li {
+  font-family: 'Mulmaru', 'Noto Sans KR', sans-serif;
+  font-size: 16px;
+  color: rgba(255,255,255,0.65);
+  line-height: 2;
+}
+
+/* What I Learned — Overview와 동일 스타일 */
+.ps-learned-head {
+  font-family: 'Mulmaru', 'Noto Sans KR', sans-serif;
+  font-size: 20px;
+  font-weight: 700;
+  color: #ffffff !important;
+  margin-bottom: 8px;
+  letter-spacing: 1px;
+}
+.ps-learned p {
+  font-family: 'Mulmaru', 'Noto Sans KR', sans-serif;
+  font-size: 16px;
+  color: #ffffff !important;
+  line-height: 2;
+}
+
+/* ── 수직 구분선 ── */
+.ps-divider {
+  width: 1px;
+  align-self: stretch;
+  background: rgba(255, 255, 255, 0.08);
+  flex-shrink: 0;
+}
+
+/* ══ 이미지 라이트박스 ══ */
+#ps-lightbox {
+  display: none;
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  background: rgba(0, 0, 0, 0.82);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 20px;
+  cursor: default;
+}
+#ps-lightbox.ps-lb-open {
+  display: flex;
+}
+#ps-lightbox img {
+  max-width: 88vw;
+  max-height: 80vh;
+  border-radius: 12px;
+  object-fit: contain;
+  box-shadow: 0 8px 48px rgba(0,0,0,0.7);
+}
+#ps-lb-close {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 200px;
+  height: 48px;
+  border-radius: 8px;
+  border: 2px solid #ffffff;
+  background: transparent;
+  color: #ffffff;
+  font-size: 16px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  cursor: pointer;
+  transition: background 0.25s ease, color 0.25s ease;
+}
+#ps-lb-close:hover {
+  background: #ffffff;
+  color: #000000;
+}
+
+/* ── Bottom progress bar ──
   justify-content: center;
   padding-right: 5vw;
   position: relative;
@@ -155,159 +466,4 @@
   align-items: center;
   gap: 20px;
   text-align: center;
-}
-
-/* ── Vertical divider ── */
-.ps-divider {
-  width: 1px;
-  align-self: stretch;
-  background: rgba(255, 255, 255, 0.08);
-  flex-shrink: 0;
-}
-
-/* ── Text area (right half) ── */
-.ps-info-area {
-  flex: 1;
-  padding: 0 5vw;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  position: relative;
-  z-index: 1;
-  background: rgba(10, 12, 26, 0.88);
-  align-self: stretch;
-}
-
-/* ── Content elements ── */
-.ps-emoji {
-  font-size: clamp(72px, 10vw, 120px);
-  filter: drop-shadow(0 8px 24px rgba(0,0,0,0.40));
-  line-height: 1;
-}
-
-.ps-num {
-  font-family: 'Press Start 2P', monospace;
-  font-size: clamp(10px, 1.2vw, 13px);
-  color: rgba(255,255,255,0.55);
-  background: rgba(0,0,0,0.22);
-  padding: 6px 16px;
-  border-radius: 6px;
-}
-
-.ps-type-chips {
-  display: flex;
-  gap: 8px;
-  flex-wrap: wrap;
-  justify-content: center;
-}
-
-.ps-type-chip {
-  font-size: 11px;
-  font-weight: 600;
-  background: rgba(255,255,255,0.14);
-  color: rgba(255,255,255,0.9);
-  padding: 4px 12px;
-  border-radius: 5px;
-  border: 1px solid rgba(255,255,255,0.22);
-}
-
-.ps-label-mini {
-  font-family: 'Press Start 2P', monospace;
-  font-size: 8px;
-  color: var(--gold);
-  opacity: 0.7;
-  margin-bottom: 16px;
-  letter-spacing: 2px;
-}
-
-.ps-title {
-  font-size: clamp(22px, 2.8vw, 38px);
-  font-weight: 700;
-  color: #fff;
-  line-height: 1.35;
-  margin-bottom: 20px;
-}
-
-.ps-desc {
-  font-size: clamp(13px, 1.1vw, 15px);
-  line-height: 1.9;
-  color: rgba(255,255,255,0.62);
-  margin-bottom: 24px;
-  max-width: 480px;
-}
-
-.ps-tags {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 8px;
-  margin-bottom: 28px;
-}
-
-.ps-tag {
-  font-size: 11px;
-  font-weight: 600;
-  padding: 5px 14px;
-  background: rgba(58,159,213,0.12);
-  color: var(--blue);
-  border-radius: 6px;
-  border: 1px solid rgba(58,159,213,0.2);
-}
-
-.ps-status {
-  font-family: 'Press Start 2P', monospace;
-  font-size: 8px;
-  color: #0dcc72;
-}
-
-/* ── Bottom progress bar ── */
-.proj-bar-wrap {
-  position: absolute;
-  bottom: 0; left: 0; right: 0;
-  height: 3px;
-  background: rgba(255,255,255,0.05);
-  z-index: 20;
-}
-
-#proj-bar {
-  height: 100%;
-  background: linear-gradient(90deg, var(--blue), var(--gold));
-  width: 0%;
-  transition: width 0.1s linear;
-  border-radius: 0 2px 2px 0;
-}
-
-/* ── Mobile ── */
-@media (max-width: 768px) {
-  #projects-pin {
-    top: 0;
-    height: 100vh;
-  }
-  .proj-slide {
-    clip-path: none !important;
-  }
-  .ps-bg {
-    left: 0;
-    width: 100%;
-  }
-  .ps-frame {
-    left: 0;
-    width: 100%;
-    flex-direction: column;
-  }
-  .ps-img-area {
-    flex: 0 0 35%;
-    align-items: center;
-    padding-right: 0;
-  }
-  .ps-divider {
-    width: 100%;
-    height: 1px;
-    align-self: auto;
-  }
-  .ps-info-area {
-    flex: 1;
-    padding: 24px 20px;
-  }
-  .ps-title { font-size: 18px; }
-  .ps-desc  { font-size: 13px; }
 }

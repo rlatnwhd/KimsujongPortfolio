@@ -23,10 +23,18 @@
   background: transparent;
 }
 
-/* ── About 상단: sky 배경 위에 하였게 wave가 떠오르는 효과 ── */
+/* ── About 상단: sky 배경 위에 하았게 wave가 떠오르는 효과 ── */
 .wave-about-top {
   background: transparent;
-  margin-bottom: -2px; /* about 세션과 틈새없이 연결 */
+  margin-bottom: -2px;
+}
+
+/* ── Hero → About: 하늘색 배경에 하양게 하였게 파도 ── */
+.wave-hero-to-about {
+  background: transparent;
+  margin-bottom: -2px;
+  z-index: 2;
+  position: relative;
 }
 
 /* ── 하단: 웨이브 뒤 = 다크(projects 섹션) 색 ── */

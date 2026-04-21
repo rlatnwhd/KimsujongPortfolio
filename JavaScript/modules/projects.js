@@ -12,39 +12,109 @@
   /* ─ Project data ─ */
   const PROJECTS = [
     {
-      num: '01', emoji: '\uD83D\uDCD6',
-      title: '\uC6F9 \uD504\uB85C\uADF8\uB798\uBC0D \uAC1C\uB150 \uC815\uB9AC',
-      desc: 'HTML, CSS, JavaScript\uC758 \uD575\uC2EC \uAC1C\uB150\uC744 \uCCB4\uACC4\uC801\uC73C\uB85C \uD559\uC2B5\uD558\uACE0 \uC815\uB9AC\uD55C \uD559\uC2B5\uC6A9 \uC6F9\uC0AC\uC774\uD2B8\uC785\uB2C8\uB2E4. html \uAE30\uBCF8 \uBB38\uBC95, \uC2DC\uB9E8\uD2F1 \uD0DC\uADF8, CSS \uB808\uC774\uC544\uC6C3, \uC560\uB2C8\uBA54\uC774\uC158 \uB4F1 \uD504\uB860\uD2B8\uC5D4\uB4DC \uAE30\uCD08\uB97C \uC2E4\uC2B5\uD558\uBA70 \uC81C\uC791\uD588\uC2B5\uB2C8\uB2E4.',
-      tags: ['HTML5', 'CSS3'], types: ['\uD559\uC2B5'], status: '\u2713 COMPLETED',
-      bg: 'linear-gradient(140deg, #3a9fd5 0%, #1470a8 100%)',
+      num: '01',
+      title: '웹 기초 정리',
+      themeBg: '#ffffff',
+      themeText: '#111111',
+      type: 'PC',
+      service: '웹',
+      techs: ['HTML', 'CSS'],
+      contrib: ['프론트 100%', '디자인 100%'],
+      team: '개인',
+      overview: [
+        'HTML, CSS 핵심 개념을 체계적으로 학습하고 정리한 학습용 웹사이트',
+        'html 기본 문법, 시맨틱 태그, CSS 레이아웃 직접 실습하며 제작',
+        '반응형 레이아웃 구조 설계 및 Flex/Grid 활용 연습',
+        'Flex, Grid, animation 등 프론트엔드 기초 기술 정리',
+      ],
+      learned: 'HTML/CSS 기초를 탄탄히 다지며 웹 구조 설계 방식에 대한 감각을 키울 수 있었습니다.',
+      liveUrl: 'https://rlatnwhd.github.io/Web-arrangement/',
+      githubUrl: 'https://github.com/rlatnwhd/Web-arrangement',
+      imgBase: '../images/projects/web-basic',
     },
     {
-      num: '02', emoji: '\uD83D\uDD04',
-      title: '\uBE4C\uB824\uBD04 \u2014 \uC911\uACE0 \uB300\uC5EC \uC11C\uBE44\uC2A4',
-      desc: '\uC911\uACE0 \uC0C1\uD488\uC744 \uC774\uC6A9\uC790\uB85C\uBD80\uD130 \uB300\uC5EC\uD558\uB294 \uC911\uACE0 \uB300\uC5EC \uC11C\uBE44\uC2A4\uC785\uB2C8\uB2E4. \uC0AC\uC6A9\uC790 \uC778\uC99D, \uBB3C\uD488 \uB4F1\uB85D/\uAC80\uC0C9, \uB300\uC5EC \uC2E0\uCCAD \uD750\uB984\uC744 \uAD6C\uD604\uD588\uC73C\uBA70 \uC9C1\uAD00\uC801\uC778 UX\uB97C \uC704\uD574 \uCEF4\uD3EC\uB10C\uD2B8 \uC124\uACC4\uC5D0 \uC9D1\uC911\uD588\uC2B5\uB2C8\uB2E4.',
-      tags: ['Flutter', 'Dart', 'Firebase', 'Figma'], types: ['\uD300'], status: '\u2713 COMPLETED',
-      bg: 'linear-gradient(140deg, #52c45a 0%, #28a030 100%)',
+      num: '02',
+      title: '빌려봄',
+      themeBg: '#3154FF',
+      themeText: '#ffffff',
+      type: '모바일, 반응형',
+      service: '애플리케이션',
+      techs: ['Flutter', 'Dart', 'C#'],
+      contrib: ['프론트 60%', '디자인 100%'],
+      team: '팀',
+      overview: [
+        '중고 물품을 이용자로부터 대여하는 중고 대여 서비스',
+        '사용자 인증, 물품 등록/검색, 대여 신청 흐름 구현',
+        '직관적인 UX를 위해 컴포넌트 설계에 집중',
+        'Flutter 상태 관리 및 Firebase 연동 경험',
+      ],
+      learned: '팀 협업 과정에서 코드 컨벤션과 역할 분담의 중요성을 배웠습니다.',
+      liveUrl: null,
+      githubUrl: 'https://github.com/Renty-Project-Team',
+      imgBase: '../images/projects/billyeobeom',
     },
     {
-      num: '03', emoji: '\uD83C\uDFE1',
-      title: '\uC5D0\uCF54 \uD558\uC6B0\uC2A4',
-      desc: 'Unity\uB97C \uD65C\uC6A9\uD558\uBA70 \uC81C\uC791\uD55C 3D \uC2A4\uD1A0\uB9AC \uACF5\uD3EC\uAC8C\uC784 \uC785\uB2C8\uB2E4. \uD50C\uB808\uC774\uC5B4\uB294 \uD3D0\uAC74\uBB3C(\uD638\uD154)\uC5D0 \uAC07\uD78C \uC8FC\uC778\uACF5\uC774 \uB418\uC5B4 \uC9D1 \uC548\uC744 \uD0D0\uD5D8\uD558\uBA70 \uD37C\uC990\uC744 \uD480\uACE0 \uD0C8\uCD9C\uD558\uB294 \uACBD\uD5D8\uC744 \uD558\uAC8C \uB429\uB2C8\uB2E4.',
-      tags: ['Unity', 'C#', '3D Modeling'], types: ['\uAC1C\uC778'], status: '\u2713 COMPLETED',
-      bg: 'linear-gradient(140deg, #e07b39 0%, #b85720 100%)',
+      num: '03',
+      title: '에코 하우스',
+      themeBg: '#5a5a5a',
+      themeText: '#ffffff',
+      type: 'PC',
+      service: '게임',
+      techs: ['Unity', 'C#'],
+      contrib: ['프론트 100%', '디자인 100%'],
+      team: '개인',
+      overview: [
+        'Unity를 활용하여 제작한 3D 스토리 공포게임',
+        '플레이어는 폐건물(호텔)에 갇힌 주인공이 되어 집 안을 탐험',
+        '퍼즐을 풀고 탈출하는 경험을 하게 됩니다',
+        'C# 스크립팅으로 게임 로직 전체 구현',
+      ],
+      learned: 'Unity 엔진 구조와 게임 루프 설계 방식을 깊이 이해할 수 있었습니다.',
+      liveUrl: null,
+      githubUrl: 'https://github.com/rlatnwhd/EchoHouse',
+      imgBase: '../images/projects/echohouse',
     },
     {
-      num: '04', emoji: '\uD83C\uDFAE',
-      title: '\uC6F9 \uC885\uD569\uAC8C\uC784',
-      desc: 'Canvas API\uB97C \uD65C\uC6A9\uD574 \uC81C\uC791\uD55C \uBA40\uD2F0 \uAC8C\uC784 \uD3EC\uD138\uC785\uB2C8\uB2E4. \uC22B\uC790 \uC57C\uAD6C, \uC9C0\uB8B0\uCC3E\uAE30, \uD018\uC988, \uC288\uD305 \uAC8C\uC784 \uB4F1 \uB2E4\uC591\uD55C \uAC8C\uC784\uC744 \uC21C\uC218 JavaScript\uB85C \uAD6C\uD604\uD574 \uB85C\uC9C1\uACFC \uB80C\uB354\uB9C1 \uCD5C\uC801\uD654\uB97C \uC775\uD614\uC2B5\uB2C8\uB2E4.',
-      tags: ['JavaScript', 'Canvas API', 'HTML5'], types: ['\uAC1C\uC778'], status: '\u2713 COMPLETED',
-      bg: 'linear-gradient(140deg, #7c3aed 0%, #4c1d95 100%)',
+      num: '04',
+      title: '웹 종합게임',
+      themeBg: '#8b5cf6',
+      themeText: '#ffffff',
+      type: 'PC, 모바일, 반응형',
+      service: '웹 게임',
+      techs: ['HTML', 'CSS', 'JavaScript'],
+      contrib: ['프론트 100%', '디자인 100%'],
+      team: '개인',
+      overview: [
+        'Canvas API를 활용해 제작한 멀티 게임 포털',
+        '숫자 야구, 지뢰찾기, 퀴즈, 슈팅 게임 등 다양한 게임 구현',
+        '순수 JavaScript로 로직과 렌더링 최적화',
+        '반응형 레이아웃으로 모바일 환경 대응',
+      ],
+      learned: 'JavaScript 로직 설계와 Canvas 렌더링 최적화 방법을 깊이 익혔습니다.',
+      liveUrl: 'https://rlatnwhd.github.io/Assorted-Games/',
+      githubUrl: 'https://github.com/rlatnwhd/Assorted-Games',
+      imgBase: '../images/projects/webgame',
     },
     {
-      num: '05', emoji: '\u2601\uFE0F',
-      title: 'Storoo \u2014 \uC790\uB8CC \uC800\uC7A5 \uC11C\uBE44\uC2A4',
-      desc: '\uD300 \uD504\uB85C\uC81D\uD2B8\uB85C \uAC1C\uBC1C\uD55C \uD074\uB77C\uC6B0\uB4DC \uC790\uB8CC \uC800\uC7A5\u00B7\uACF5\uC720 \uC11C\uBE44\uC2A4\uC785\uB2C8\uB2E4. Flutter \uAE30\uBC18 \uD504\uB860\uD2B8\uC5D4\uB4DC\uC640 Flutter Isar \uBC31\uC5D4\uB4DC\uB97C \uC5F0\uB3D9\uD588\uC73C\uBA70, \uD0C0\uC785 \uC548\uC804\uC131 \uAC15\uD654\uC640 \uD611\uC5C5 \uACBD\uD5D8\uC744 \uC313\uC744 \uC218 \uC788\uC5C8\uC2B5\uB2C8\uB2E4.',
-      tags: ['Flutter', 'Isar', 'Dart', 'CSS'], types: ['\uD300'], status: 'Working on it',
-      bg: 'linear-gradient(140deg, #06b6d4 0%, #0369a1 100%)',
+      num: '05',
+      title: '스토루',
+      themeBg: '#ffffff',
+      themeText: '#111111',
+      type: 'PC',
+      service: '웹',
+      techs: ['Flutter', 'Dart', 'Figma'],
+      contrib: ['프론트 100%', '디자인 100%'],
+      team: '팀',
+      overview: [
+        '팀 프로젝트로 개발한 클라우드 자료 저장·공유 서비스',
+        'Flutter 기반 프론트엔드와 백엔드 연동',
+        '타입 안전성 강화와 협업 경험 축적',
+        'UI/UX 설계 및 Figma 프로토타이핑 담당',
+      ],
+      learned: '팀 내 소통과 역할 조율이 프로젝트 품질에 얼마나 큰 영향을 주는지 느꼈습니다.',
+      liveUrl: null,
+      githubUrl: 'https://github.com/Team-Storoo',
+      imgBase: '../images/projects/storoo',
     },
   ];
 
@@ -62,32 +132,97 @@
   const BG_SPEED   = 0.35;   // background parallax 35%
   const FR_SPEED   = 0.12;   // content frame parallax 12%
 
+  /* ─ Lightbox ─ */
+  let lb = document.getElementById('ps-lightbox');
+  if (!lb) {
+    lb = document.createElement('div');
+    lb.id = 'ps-lightbox';
+    lb.innerHTML = '<img id="ps-lb-img" src="" alt="" /><button id="ps-lb-close">닫기</button>';
+    document.body.appendChild(lb);
+    document.getElementById('ps-lb-close').addEventListener('click', function() {
+      lb.classList.remove('ps-lb-open');
+      document.body.style.overflow = '';
+    });
+    lb.addEventListener('click', function(e) {
+      if (e.target === lb) {
+        lb.classList.remove('ps-lb-open');
+        document.body.style.overflow = '';
+      }
+    });
+  }
+
   /* ─ Build cards (position: absolute) ─ */
   PROJECTS.forEach((p, i) => {
-    const chips = p.types.map(t => '<span class="ps-type-chip">' + t + '</span>').join('');
-    const tags  = p.tags.map(t => '<span class="ps-tag">' + t + '</span>').join('');
+    const techLines = p.techs.map(t => '<span>' + t + '</span>').join('');
+    const contribLines = p.contrib.map(c => '<span>' + c + '</span>').join('');
+    const typeLines = p.type.split(',').map(function(t) { return '<span>' + t.trim() + '</span>'; }).join('');
+    const overviewItems = p.overview.map(o => '<li>' + o + '</li>').join('');
+    // 앱(모바일) 유형: 2번(i=1), 5번(i=4) → 세로 기준 채우기
+    const isApp = (i === 1 || i === 4);
+    const mainWrapClass = isApp ? 'ps-main-img-wrap ps-img-app' : 'ps-main-img-wrap';
+    const cellClass = isApp ? 'ps-screen-cell ps-cell-app' : 'ps-screen-cell';
+
+    // hover 클래스: 1번(i=0), 5번(i=4) → 검정배경 hover / 2,3,4번 → 흰배경 hover
+    const hoverClass = (i === 0 || i === 4) ? ' ps-btn-dark-hover' : ' ps-btn-light-hover';
+
+    // 버튼 영역
+    let btns = '';
+    if (p.liveUrl) {
+      btns =
+        '<a href="' + p.liveUrl + '" target="_blank" rel="noopener noreferrer" class="ps-btn ps-btn-view' + hoverClass + '" style="border-color:' + p.themeText + ';color:' + p.themeText + ';">보기</a>' +
+        '<a href="' + p.githubUrl + '" target="_blank" rel="noopener noreferrer" class="ps-btn ps-btn-gh' + hoverClass + '" style="border-color:' + p.themeText + ';color:' + p.themeText + ';">깃허브</a>';
+    } else {
+      btns =
+        '<a href="' + p.githubUrl + '" target="_blank" rel="noopener noreferrer" class="ps-btn ps-btn-gh ps-btn-full' + hoverClass + '" style="border-color:' + p.themeText + ';color:' + p.themeText + ';">깃허브</a>';
+    }
 
     const slide = document.createElement('div');
     slide.className = 'proj-slide';
     slide.style.zIndex = i + 1;
 
     slide.innerHTML =
-      '<div class="ps-bg" style="background:' + p.bg + ';"></div>' +
+      '<div class="ps-bg" style="background:' + p.themeBg + ';"></div>' +
       '<div class="ps-frame">' +
-        '<div class="ps-img-area">' +
-          '<div class="ps-img-inner">' +
-            '<div class="ps-type-chips">' + chips + '</div>' +
-            '<span class="ps-emoji">' + p.emoji + '</span>' +
-            '<span class="ps-num">' + p.num + '</span>' +
+        // ── 좌측: 이미지 구역
+        '<div class="ps-img-area" style="background:' + p.themeBg + ';">' +
+          // 대표 이미지 (클릭 이벤트 없음)
+          '<div class="' + mainWrapClass + '">' +
+            '<img src="' + p.imgBase + '/대표.png" alt="' + p.title + ' 대표 이미지" class="ps-main-img" onerror="this.parentElement.classList.add(\'ps-img-fallback\');this.remove();this.parentElement.dataset.num=\'' + p.num + '\';" />' +
           '</div>' +
+          // 화면 구성 그리드 (div wrapper 클릭으로 라이트박스 오픈)
+          '<div class="ps-screen-section">' +
+            '<p class="ps-screen-label" style="color:' + p.themeText + ';">화면 구성</p>' +
+            '<div class="ps-screen-grid">' +
+              '<div class="' + cellClass + '" onclick="(function(el){var img=el.querySelector(\'img\');if(img&&img.src){var l=document.getElementById(\'ps-lightbox\');document.getElementById(\'ps-lb-img\').src=img.src;l.classList.add(\'ps-lb-open\');document.body.style.overflow=\'hidden\';}})(this);"><img src="' + p.imgBase + '/화면1.png" alt="" onerror="this.parentElement.classList.add(\'ps-img-fallback\');" /></div>' +
+              '<div class="' + cellClass + '" onclick="(function(el){var img=el.querySelector(\'img\');if(img&&img.src){var l=document.getElementById(\'ps-lightbox\');document.getElementById(\'ps-lb-img\').src=img.src;l.classList.add(\'ps-lb-open\');document.body.style.overflow=\'hidden\';}})(this);"><img src="' + p.imgBase + '/화면2.png" alt="" onerror="this.parentElement.classList.add(\'ps-img-fallback\');" /></div>' +
+              '<div class="' + cellClass + '" onclick="(function(el){var img=el.querySelector(\'img\');if(img&&img.src){var l=document.getElementById(\'ps-lightbox\');document.getElementById(\'ps-lb-img\').src=img.src;l.classList.add(\'ps-lb-open\');document.body.style.overflow=\'hidden\';}})(this);"><img src="' + p.imgBase + '/화면3.png" alt="" onerror="this.parentElement.classList.add(\'ps-img-fallback\');" /></div>' +
+              '<div class="' + cellClass + '" onclick="(function(el){var img=el.querySelector(\'img\');if(img&&img.src){var l=document.getElementById(\'ps-lightbox\');document.getElementById(\'ps-lb-img\').src=img.src;l.classList.add(\'ps-lb-open\');document.body.style.overflow=\'hidden\';}})(this);"><img src="' + p.imgBase + '/화면4.png" alt="" onerror="this.parentElement.classList.add(\'ps-img-fallback\');" /></div>' +
+            '</div>' +
+          '</div>' +
+          // 버튼 영역
+          '<div class="ps-btn-area">' + btns + '</div>' +
         '</div>' +
-        '<div class="ps-divider"></div>' +
+        // ── 우측: 텍스트 구역
         '<div class="ps-info-area">' +
-          '<p class="ps-label-mini">PROJECT \u00B7 ' + p.num + '</p>' +
-          '<h2 class="ps-title">' + p.title + '</h2>' +
-          '<p class="ps-desc">' + p.desc + '</p>' +
-          '<div class="ps-tags">' + tags + '</div>' +
-          '<div class="ps-status">' + p.status + '</div>' +
+          '<div class="ps-info-area-inner">' +
+            '<p class="ps-label-mini">PROJECT · ' + p.num + '</p>' +
+            '<h2 class="ps-title">' + p.title + '</h2>' +
+            '<div class="ps-spec-row">' +
+              '<div class="ps-spec-col"><span class="ps-spec-head">타입</span><span class="ps-spec-val ps-spec-type">' + typeLines + '</span></div>' +
+              '<div class="ps-spec-col"><span class="ps-spec-head">서비스 유형</span><span class="ps-spec-val">' + p.service + '</span></div>' +
+              '<div class="ps-spec-col"><span class="ps-spec-head">사용 기술</span><span class="ps-spec-val ps-spec-tech">' + techLines + '</span></div>' +
+              '<div class="ps-spec-col"><span class="ps-spec-head">기여도</span><span class="ps-spec-val ps-spec-contrib">' + contribLines + '</span></div>' +
+              '<div class="ps-spec-col"><span class="ps-spec-head">구분</span><span class="ps-spec-val">' + p.team + '</span></div>' +
+            '</div>' +
+            '<div class="ps-overview">' +
+              '<p class="ps-overview-head">Overview</p>' +
+              '<ul>' + overviewItems + '</ul>' +
+            '</div>' +
+            '<div class="ps-learned">' +
+              '<p class="ps-learned-head">What I Learned</p>' +
+              '<p>' + p.learned + '</p>' +
+            '</div>' +
+          '</div>' +
         '</div>' +
       '</div>';
 

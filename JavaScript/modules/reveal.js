@@ -26,8 +26,8 @@
   gsap.registerPlugin(ScrollTrigger);
 
   /* ── 1. Hero 요소: 페이지 로드 직후 순차 등장 ─── */
-  const heroOrder = ['#hero .hero-badge', '#hero .hero-eng',
-                     '#hero .hero-typing-wrap', '#hero .hero-quote', '#hero .hero-btns'];
+  const heroOrder = ['#hero .hero-eng',
+                     '#hero .hero-typing-wrap', '#hero .hero-quote'];
   const heroEls = heroOrder.map(s => document.querySelector(s)).filter(Boolean);
   if (heroEls.length) {
     gsap.fromTo(heroEls,
