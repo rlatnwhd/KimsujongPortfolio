@@ -2,7 +2,6 @@
    SKILLS
    책임 : 스킬 카드, 숙련도 바, 툴팁 스타일
 ═══════════════════════════════════ */
-#skills { background: rgba(255,255,255,0.55); }
 .skill-group { margin-bottom: 44px; }
 .group-label {
   font-family: 'Press Start 2P', monospace; font-size: 9px;

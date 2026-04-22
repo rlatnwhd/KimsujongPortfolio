@@ -38,19 +38,16 @@ section { position: relative; z-index: 1; padding: 130px 0 110px; }
 /* Utility */
 .hi { color: var(--blue); font-weight: 600; }
 
-/* Ground strip */
+/* Ground strip — 숨김 처리 */
 .ground {
-  position: relative; z-index: 1; height: 8px;
-  background: linear-gradient(90deg, var(--blue), var(--blue-light), var(--gold), var(--green), var(--blue));
-  background-size: 300% 100%;
-  animation: groundShift 10s ease infinite;
+  height: 0;
+  background: transparent;
 }
-@keyframes groundShift { 0%,100% { background-position: 0 50%; } 50% { background-position: 100% 50%; } }
 
 /* 다크 테마에서 전환 간격 최소화 */
 .sky-fade {
   position: relative;
   z-index: 1;
-  height: 260px;
+  height: 80px;
   pointer-events: none;
 }
