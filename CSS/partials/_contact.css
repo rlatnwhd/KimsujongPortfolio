@@ -1,19 +1,75 @@
 /* ═══════════════════════════════════
    CONTACT
-   책임 : 연락처 섹션 카드 그리드 스타일
+   책임 : 샘플 스타일 — 감사합니다 + 버튼 2개
 ═══════════════════════════════════ */
-#contact { text-align: center; }
-.contact-sub { font-size: 16px; margin-bottom: 52px; opacity: 0.6; line-height: 2; }
-.contact-grid { display: flex; justify-content: center; gap: 24px; flex-wrap: wrap; }
-.cc {
-  background: var(--card); border-radius: var(--radius);
-  box-shadow: 0 8px 32px var(--shadow); border: 1px solid var(--border);
-  padding: 48px 64px; display: flex; flex-direction: column;
-  align-items: center; gap: 16px; min-width: 200px;
-  will-change: transform; transition: box-shadow var(--transition), background var(--transition), border-color var(--transition);
+#contact {
+  background: #0a0c1a;
+  text-align: center;
+  padding: 160px 24px 140px;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
 }
-.cc:hover { box-shadow: 0 20px 60px var(--shadow-strong); border-color: var(--accent-border); }
-.cc-icon { font-size: 48px; transition: transform var(--transition); }
-.cc:hover .cc-icon { transform: scale(1.15); }
-.cc-label { font-family: 'Press Start 2P', monospace; font-size: 10px; color: var(--accent); transition: color var(--transition); }
-.cc-val { font-size: 13px; opacity: 0.6; transition: color var(--transition), opacity var(--transition); }
+
+.contact-inner {
+  max-width: 720px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 32px;
+  padding-top: 50px;
+}
+
+/* 제목 */
+.contact-thanks {
+  font-family: 'Galmuri11', sans-serif;
+  font-size: clamp(42px, 6vw, 72px);
+  font-weight: 700;
+  color: #ffffff;
+  letter-spacing: -0.02em;
+  line-height: 1.1;
+}
+
+/* 설명 */
+.contact-desc {
+  font-family: 'Galmuri11', sans-serif;
+  font-size: clamp(13px, 1.4vw, 16px);
+  color: rgba(255, 255, 255, 0.65);
+  line-height: 2;
+  word-break: keep-all;
+}
+
+/* 버튼 묶음 */
+.contact-btns {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-top: 8px;
+}
+
+/* 버튼 — ps-btn과 동일 스타일 */
+.contact-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: 42px;
+  padding: 0 32px;
+  border-radius: 8px;
+  border: 2px solid rgba(255, 255, 255, 0.55);
+  background: transparent;
+  font-family: 'Galmuri11', sans-serif;
+  font-size: 14px;
+  font-weight: 700;
+  color: #ffffff;
+  letter-spacing: 1px;
+  text-decoration: none;
+  transition: background 0.25s ease, color 0.25s ease, border-color 0.25s ease;
+  cursor: pointer;
+}
+.contact-btn:hover {
+  background: #ffffff;
+  color: #0a0c1a;
+  border-color: #ffffff;
+}

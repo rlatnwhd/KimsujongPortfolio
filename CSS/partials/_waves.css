@@ -28,6 +28,11 @@
   background: #0a0c1a;
 }
 
+/* ── Activity → Contact 웨이브: sky(밝음) 배경 위, 다크색으로 전환 ── */
+.wave-act-to-contact {
+  background: #e8f4fc;
+}
+
 /* ── 샘플과 동일한 애니메이션 ── */
 .parallax > use {
   animation: move-forever 12s linear infinite;
