@@ -30,7 +30,7 @@
       learned: 'HTML/CSS 기초를 탄탄히 다지며 웹 구조 설계 방식에 대한 감각을 키울 수 있었습니다.',
       liveUrl: 'https://rlatnwhd.github.io/Web-arrangement/',
       githubUrl: 'https://github.com/rlatnwhd/Web-arrangement',
-      imgBase: '../images/projects/web-basic',
+      imgBase: 'images/projects/web-basic',
     },
     {
       num: '02',
@@ -51,7 +51,7 @@
       learned: '팀 협업 과정에서 코드 컨벤션과 역할 분담의 중요성을 배웠습니다. Flutter로 개발한 첫 앱이여서 디자인이 아쉽긴 하지만 많은 것을 배울 수 있었습니다.',
       liveUrl: null,
       githubUrl: 'https://github.com/Renty-Project-Team',
-      imgBase: '../images/projects/billyeobeom',
+      imgBase: 'images/projects/billyeobeom',
     },
     {
       num: '03',
@@ -72,7 +72,7 @@
       learned: 'Unity 엔진 구조와 게임 루프 설계 방식을 깊이 이해할 수 있었습니다.',
       liveUrl: null,
       githubUrl: 'https://github.com/rlatnwhd/EchoHouse',
-      imgBase: '../images/projects/echohouse',
+      imgBase: 'images/projects/echohouse',
     },
     {
       num: '04',
@@ -93,7 +93,7 @@
       learned: 'JavaScript 로직 설계와 Canvas 렌더링 최적화 방법을 깊이 익혔습니다.',
       liveUrl: 'https://rlatnwhd.github.io/Assorted-Games/',
       githubUrl: 'https://github.com/rlatnwhd/Assorted-Games',
-      imgBase: '../images/projects/webgame',
+      imgBase: 'images/projects/webgame',
     },
     {
       num: '05',
@@ -114,7 +114,7 @@
       learned: '팀 내 소통과 역할 조율이 프로젝트 품질에 얼마나 큰 영향을 주는지 느꼈고, 디자인한 UI가 실제로 구현되고 결과를 보는 만족감이 특히 컸습니다.',
       liveUrl: null,
       githubUrl: 'https://github.com/Team-Storoo',
-      imgBase: '../images/projects/storoo',
+      imgBase: 'images/projects/storoo',
     },
   ];
 
