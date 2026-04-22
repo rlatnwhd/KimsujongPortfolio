@@ -1,39 +1,157 @@
 /* ═══════════════════════════════════
    ACTIVITY
-   책임 : 활동 타임라인 스타일
+   책임 : 세로선 + scaleX 카드 펼침 타임라인
 ═══════════════════════════════════ */
 #activity { background: #e8f4fc; }
-.act-timeline { max-width: 780px; display: flex; flex-direction: column; gap: 0; position: relative; }
-.act-timeline::before {
-  content: ''; position: absolute; left: 29px; top: 0; bottom: 0; width: 2px;
-  background: linear-gradient(180deg, var(--blue), rgba(58,159,213,0.15));
+
+/* ── 레이아웃: 세로선 + 카드 컬럼 ── */
+.act-layout {
+  display: flex;
+  align-items: stretch;
+  gap: 40px;
+  max-width: 780px;
+  padding-top: 12px;
 }
-.act-item {
-  display: flex; align-items: flex-start; gap: 26px; padding: 0 0 32px; position: relative; z-index: 1;
-  /* activityReveal.js 가 scroll 에 따라 transform·opacity 직접 제어 */
-  opacity: 0;
-  transform: translateX(-90px);
-  will-change: transform, opacity;
+
+/* ── 세로 선 ── */
+.act-line-wrap {
+  flex-shrink: 0;
+  width: 2px;
+  position: relative;
+  align-self: stretch;
 }
-.act-dot {
-  flex-shrink: 0; width: 60px; height: 60px;
-  background: var(--card); border-radius: 14px;
-  border: 1px solid var(--accent-border);
-  box-shadow: 0 4px 16px var(--shadow);
-  display: flex; align-items: center; justify-content: center; font-size: 24px;
+.act-line-bg {
+  position: absolute;
+  inset: 0;
+  background: #d1d5db;
+  border-radius: 2px;
 }
-.act-body {
-  background: var(--card); border-radius: var(--radius);
-  box-shadow: 0 4px 20px var(--shadow); border: 1px solid var(--border);
-  padding: 26px 30px; flex: 1;
+.act-line-fill {
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%;
+  height: 0%;
+  background: linear-gradient(180deg, #3154ff, #9138ff);
+  border-radius: 2px;
+}
+
+/* ── 카드 컬럼 ── */
+.act-cards {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+/* ── 카드: scaleX 애니메이션 대상 ── */
+.act-card {
+  background: #ffffff;
+  border-radius: 16px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  border: 1px solid rgba(0, 0, 0, 0.07);
+  overflow: hidden;
+  transform: scaleX(0);
+  transform-origin: left center;
   will-change: transform;
-  transition: box-shadow var(--transition), border-color var(--transition);
 }
-.act-body:hover { box-shadow: 0 14px 44px var(--shadow-strong); border-color: var(--accent-border); }
-.act-body strong { font-size: 16px; font-weight: 700; display: block; margin-bottom: 8px; }
-.act-body p { font-size: 14px; color: var(--text-muted); line-height: 1.9; }
-.act-year {
-  font-family: 'Press Start 2P', monospace; font-size: 8px; color: var(--accent);
-  margin-top: 12px; display: inline-block;
-  background: var(--accent-dim); padding: 4px 10px; border-radius: 4px;
+
+/* ── 카드 내부: opacity 페이드 대상 ── */
+.act-card-inner {
+  padding: 28px 32px;
+  opacity: 0;
+  will-change: opacity;
+}
+
+/* ── 헤더: 태그 + 기간 ── */
+.act-card-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 16px;
+}
+.act-tag {
+  font-family: 'Press Start 2P', monospace;
+  font-size: 9px;
+  color: #3154ff;
+  background: rgba(49, 84, 255, 0.08);
+  padding: 4px 10px;
+  border-radius: 4px;
+  border: 1px solid rgba(49, 84, 255, 0.2);
+  letter-spacing: 0.04em;
+}
+.act-period {
+  font-family: 'Galmuri11', sans-serif;
+  font-size: 12px;
+  color: #6b7280;
+}
+
+/* ── 카드 제목 (물마루) ── */
+.act-card-title {
+  font-family: 'Mulmaru', sans-serif;
+  font-size: 22px;
+  color: #111111;
+  margin-bottom: 10px;
+  line-height: 1.3;
+}
+
+/* ── 설명 텍스트 ── */
+.act-card-desc {
+  font-family: 'Galmuri11', sans-serif;
+  font-size: 13px;
+  color: #4b5563;
+  line-height: 1.9;
+}
+
+/* ── 자격증 목록 ── */
+.act-cert-list {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+.act-cert-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+.act-cert-name {
+  font-family: 'Mulmaru', sans-serif;
+  font-size: 15px;
+  color: #111111;
+  min-width: 160px;
+  flex-shrink: 0;
+}
+.act-cert-info {
+  font-family: 'Galmuri11', sans-serif;
+  font-size: 12px;
+  color: #6b7280;
+  flex: 1;
+}
+
+/* ── 뱃지 ── */
+.act-badge {
+  font-family: 'Galmuri11', sans-serif;
+  font-size: 11px;
+  padding: 3px 10px;
+  border-radius: 20px;
+  border: 1px solid;
+  flex-shrink: 0;
+  white-space: nowrap;
+}
+.act-badge-done    { color: #16a34a; background: #f0fdf4; border-color: #bbf7d0; }
+.act-badge-pending { color: #d97706; background: #fffbeb; border-color: #fde68a; }
+
+/* ── 학습 이력 목록 ── */
+.act-learn-list {
+  padding-left: 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+.act-learn-list li {
+  font-family: 'Galmuri11', sans-serif;
+  font-size: 13px;
+  color: #4b5563;
+  line-height: 1.8;
+  list-style: disc;
 }

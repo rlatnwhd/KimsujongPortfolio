@@ -9,7 +9,22 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Noto+Sans+KR:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.15.1/devicon.min.css">
-  <link rel="stylesheet" href="CSS/style.css">
+  <link rel="stylesheet" href="CSS/partials/_variables.css">
+  <link rel="stylesheet" href="CSS/partials/_cursor.css">
+  <link rel="stylesheet" href="CSS/partials/_background.css">
+  <link rel="stylesheet" href="CSS/partials/_marquee.css">
+  <link rel="stylesheet" href="CSS/partials/_navigation.css">
+  <link rel="stylesheet" href="CSS/partials/_utilities.css">
+  <link rel="stylesheet" href="CSS/partials/_hero.css">
+  <link rel="stylesheet" href="CSS/partials/_about.css">
+  <link rel="stylesheet" href="CSS/partials/_education.css">
+  <link rel="stylesheet" href="CSS/partials/_skills.css">
+  <link rel="stylesheet" href="CSS/partials/_projects.css">
+  <link rel="stylesheet" href="CSS/partials/_waves.css">
+  <link rel="stylesheet" href="CSS/partials/_activity.css">
+  <link rel="stylesheet" href="CSS/partials/_contact.css">
+  <link rel="stylesheet" href="CSS/partials/_footer.css">
+  <link rel="stylesheet" href="CSS/partials/_responsive.css">
 </head>
 <body>
 
@@ -354,32 +369,79 @@
   <div class="container">
     <p class="sec-label reveal">— 05</p>
     <h2 class="sec-title reveal"><span class="accent">Activity</span></h2>
-    <div class="act-timeline">
-      <div class="act-item">
-        <div class="act-dot">💻</div>
-        <div class="act-body tilt-card">
-          <strong>웹 프론트엔드 개발 학습</strong>
-          <p>HTML, CSS, JavaScript 기반 반응형 웹 개발 역량 강화. React 프레임워크 학습 및 실전 프로젝트 적용.</p>
-          <span class="act-year">2023 – 2025</span>
-        </div>
+
+    <div class="act-layout">
+      <!-- 세로 선 -->
+      <div class="act-line-wrap">
+        <div class="act-line-bg"></div>
+        <div class="act-line-fill" id="act-line-fill"></div>
       </div>
-      <div class="act-item">
-        <div class="act-dot">🎮</div>
-        <div class="act-body tilt-card">
-          <strong>인터랙티브 웹 & 게임 프로젝트</strong>
-          <p>Canvas API와 게임적 요소를 결합한 창의적 웹 인터페이스 구현. 사용자 경험 중심의 UI/UX 설계 연구.</p>
-          <span class="act-year">2024</span>
+
+      <!-- 카드 컬럼 -->
+      <div class="act-cards">
+
+        <!-- 카드 1: CLUB -->
+        <div class="act-item">
+          <div class="act-card">
+            <div class="act-card-inner">
+              <div class="act-card-header">
+                <span class="act-tag">CLUB</span>
+                <span class="act-period">2025.09 — 2027.02</span>
+              </div>
+              <h3 class="act-card-title">교내 개발 동아리 IN&amp;OUT</h3>
+              <p class="act-card-desc">웹 개발 스터디 참여 및 팀 프로젝트 2회 진행. 협업과 코드 리뷰 문화를 익혔습니다.</p>
+            </div>
+          </div>
         </div>
-      </div>
-      <div class="act-item">
-        <div class="act-dot">🌱</div>
-        <div class="act-body tilt-card">
-          <strong>GitHub 포트폴리오 & 오픈소스</strong>
-          <p>GitHub를 통한 개인 프로젝트 꾸준히 관리. 버전 관리 습관 형성 및 코드 공유 문화 실천 중.</p>
-          <span class="act-year">2023 – 현재</span>
+
+        <!-- 카드 2: CERTIFICATE -->
+        <div class="act-item">
+          <div class="act-card">
+            <div class="act-card-inner">
+              <div class="act-card-header">
+                <span class="act-tag">CERTIFICATE</span>
+              </div>
+              <div class="act-cert-list">
+                <div class="act-cert-row">
+                  <span class="act-cert-name">컴퓨터활용능력 1급</span>
+                  <span class="act-cert-info">2022.3 · 부산상공회의소</span>
+                  <span class="act-badge act-badge-done">취득</span>
+                </div>
+                <div class="act-cert-row">
+                  <span class="act-cert-name">ITQ 정보기술자격</span>
+                  <span class="act-cert-info">2021.9 · 한국생산성본부</span>
+                  <span class="act-badge act-badge-done">취득</span>
+                </div>
+                <div class="act-cert-row">
+                  <span class="act-cert-name">정보처리기사</span>
+                  <span class="act-cert-info">한국산업인력공단</span>
+                  <span class="act-badge act-badge-pending">준비 중</span>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
-      </div>
-    </div>
+
+        <!-- 카드 3: LEARNING -->
+        <div class="act-item">
+          <div class="act-card">
+            <div class="act-card-inner">
+              <div class="act-card-header">
+                <span class="act-tag">LEARNING</span>
+                <span class="act-period">2023 — 현재</span>
+              </div>
+              <h3 class="act-card-title">학습 이력</h3>
+              <ul class="act-learn-list">
+                <li>웹 프론트엔드 (HTML/CSS/JS → React) · 2023–2025</li>
+                <li>인터랙티브 웹 &amp; 게임 (Canvas API) · 2024</li>
+                <li>GitHub 개인 프로젝트 관리 · 2023–현재</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+      </div><!-- /.act-cards -->
+    </div><!-- /.act-layout -->
   </div>
 </section>
 
