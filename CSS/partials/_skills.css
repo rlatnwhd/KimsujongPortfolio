@@ -1,12 +1,26 @@
 /* ═══════════════════════════════════
    SKILLS
-   책임 : 스킬 카드, 숙련도 바, 툴팁 스타일
+   책임 : 스킬 카드 + 그룹 레이블 + 스피닝 테두리
 ═══════════════════════════════════ */
+
+/* 스피닝 각도 애니메이션용 @property */
+@property --sk-angle {
+  syntax: '<angle>';
+  initial-value: 0deg;
+  inherits: false;
+}
+
 .skill-group { margin-bottom: 44px; }
+
+/* ── 그룹 레이블 (카테고리명) ── */
 .group-label {
-  font-family: 'Press Start 2P', monospace; font-size: 9px;
-  color: var(--accent); margin-bottom: 20px;
-  display: flex; align-items: center; gap: 16px;
+  font-family: 'Mulmaru', sans-serif;
+  font-size: 24px;
+  color: var(--accent);
+  margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+  gap: 14px;
 }
 .group-label::after {
   content: ''; flex: 1; height: 1px;
@@ -15,36 +29,88 @@
   transition: transform 0.9s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.2s;
 }
 .skill-group.sr-active .group-label::after { transform: scaleX(1); }
+
+/* ── 숙련도 범례 ── */
+.sk-legend {
+  display: flex;
+  align-items: center;
+  gap: 28px;
+  flex-wrap: wrap;
+  margin-bottom: 44px;
+  padding: 14px 20px;
+  background: rgba(255, 255, 255, 0.6);
+  border-radius: 12px;
+  width: fit-content;
+}
+.sk-legend-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-family: 'Galmuri11', sans-serif;
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--text-muted);
+}
+.sk-legend-swatch {
+  width: 18px; height: 18px;
+  border-radius: 50%;
+  display: inline-block;
+  border: 3px solid;
+  flex-shrink: 0;
+}
+.sk-l-high  { border-color: #16a34a; background: rgba(22, 163, 74, 0.12); }
+.sk-l-mid   { border-color: #2563eb; background: rgba(37, 99, 235, 0.12); }
+.sk-l-learn { border-color: #d97706; background: rgba(217, 119, 6, 0.12); }
+
+/* ── 카드 행 ── */
 .skill-row { display: flex; flex-wrap: wrap; gap: 14px; }
+
+/* ── 카드 ── */
 .sk {
-  width: 116px; background: var(--card); border-radius: var(--radius-sm);
+  width: 130px; background: var(--card); border-radius: var(--radius-sm);
   box-shadow: 0 4px 16px var(--shadow); border: 1px solid var(--border);
-  padding: 22px 12px 14px; display: flex; flex-direction: column; align-items: center; gap: 10px;
-  position: relative; cursor: none; will-change: transform;
-  transition: box-shadow var(--transition), background var(--transition), border-color var(--transition);
+  padding: 24px 12px 18px; display: flex; flex-direction: column; align-items: center; gap: 10px;
+  cursor: none; will-change: transform;
+  position: relative;
 }
-.sk:hover { box-shadow: 0 12px 36px var(--shadow-strong); background: var(--card-solid); border-color: var(--accent-border); }
-.sk i { font-size: 38px; transition: transform var(--transition); }
-.sk:hover i { transform: scale(1.15); }
-.sk-name { font-size: 11px; font-weight: 600; text-align: center; color: var(--text-muted); }
-.sk-bar { width: 100%; height: 3px; background: rgba(255,255,255,0.1); border-radius: 2px; overflow: hidden; }
-.sk-fill {
-  height: 100%; width: 0; border-radius: 2px;
-  background: linear-gradient(90deg, var(--accent), var(--blue-light));
-  transition: width 1.2s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+
+/* ── 스피닝 테두리 ── */
+.sk[data-level] { border-color: transparent; }
+.sk[data-level]::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  padding: 2px;
+  background: conic-gradient(
+    from var(--sk-angle),
+    transparent 0%,
+    transparent 55%,
+    var(--sk-glow) 75%,
+    var(--sk-glow) 100%
+  );
+  -webkit-mask:
+    linear-gradient(#fff 0 0) content-box,
+    linear-gradient(#fff 0 0);
+  -webkit-mask-composite: destination-out;
+  mask-composite: exclude;
+  animation: sk-spin 3s linear infinite;
 }
-.sk-tip {
-  position: absolute; bottom: calc(100% + 10px); left: 50%;
-  transform: translateX(-50%);
-  background: var(--card-solid); color: var(--accent);
-  font-family: 'Press Start 2P', monospace; font-size: 7px;
-  padding: 6px 12px; border-radius: 6px; white-space: nowrap;
-  opacity: 0; transition: opacity 0.2s; pointer-events: none; z-index: 10;
-  border: 1px solid var(--accent-border);
+.sk[data-level="high"]  { --sk-glow: #16a34a; }
+.sk[data-level="mid"]   { --sk-glow: #2563eb; }
+.sk[data-level="learn"] { --sk-glow: #d97706; }
+
+@keyframes sk-spin {
+  to { --sk-angle: 360deg; }
 }
-.sk-tip::after {
-  content: ''; position: absolute; top: 100%; left: 50%;
-  transform: translateX(-50%); border: 5px solid transparent; border-top-color: var(--accent-border);
+
+/* ── 아이콘 & 이름 (테두리 위에 오도록) ── */
+.sk i, .sk .sk-name { position: relative; z-index: 1; }
+.sk i { font-size: 52px; }
+.sk-name {
+  font-family: 'Galmuri11', sans-serif;
+  font-size: 14px;
+  font-weight: 700;
+  text-align: center;
+  color: var(--text-muted);
 }
-.sk:hover .sk-tip { opacity: 1; }
-.skill-note { font-size: 12px; opacity: 0.4; margin-top: 10px; }
