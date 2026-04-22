@@ -281,7 +281,7 @@
 /* ── 우측: 텍스트 구역 ── */
 .ps-info-area {
   flex: 1;
-  padding: 75px 300px 60px 60px;
+  padding: 75px 300px 25px 60px;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
@@ -299,7 +299,7 @@
   height: 100%;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: flex-start;
   text-align: left;
 }
@@ -346,6 +346,7 @@
   text-transform: uppercase;
 }
 .ps-spec-val {
+  font-family: 'Galmuri11', sans-serif;
   font-size: 15px;
   font-weight: 600;
   color: rgba(255,255,255,0.75);
@@ -361,14 +362,14 @@
 
 /* Overview */
 .ps-overview {
-  margin-bottom: 16px;
+  margin-bottom: 20px;
 }
 .ps-overview-head {
   font-family: 'Mulmaru', 'Noto Sans KR', sans-serif;
-  font-size: 20px;
+  font-size: 22px;
   font-weight: 700;
   color: #ffffff;
-  margin-bottom: 8px;
+  margin-bottom: 10px;
   letter-spacing: 1px;
 }
 .ps-overview ul {
@@ -377,26 +378,30 @@
   margin: 0;
 }
 .ps-overview ul li {
-  font-family: 'Mulmaru', 'Noto Sans KR', sans-serif;
-  font-size: 16px;
-  color: rgba(255,255,255,0.65);
+  font-family: 'Galmuri11', 'Noto Sans KR', sans-serif;
+  font-size: 17px;
+  color: rgba(255,255,255,0.75);
   line-height: 2;
 }
 
-/* What I Learned — Overview와 동일 스타일 */
+/* What I Learned */
+.ps-learned {
+  margin-top: 4px;
+}
 .ps-learned-head {
   font-family: 'Mulmaru', 'Noto Sans KR', sans-serif;
-  font-size: 20px;
+  font-size: 22px;
   font-weight: 700;
   color: #ffffff !important;
-  margin-bottom: 8px;
+  margin-bottom: 10px;
   letter-spacing: 1px;
 }
-.ps-learned p {
-  font-family: 'Mulmaru', 'Noto Sans KR', sans-serif;
-  font-size: 16px;
+.ps-learned-text {
+  font-family: 'Galmuri11', 'Noto Sans KR', sans-serif;
+  font-size: 17px;
   color: #ffffff !important;
   line-height: 2;
+  margin: 0;
 }
 
 /* ── 수직 구분선 ── */

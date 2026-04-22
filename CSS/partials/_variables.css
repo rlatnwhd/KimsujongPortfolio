@@ -6,6 +6,20 @@
   font-style:  normal;
   font-display: swap;
 }
+@font-face {
+  font-family: 'Galmuri11';
+  src: url('../../assets/fonts/Galmuri11/Galmuri11.woff2') format('woff2');
+  font-weight: 400 600;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Galmuri11';
+  src: url('../../assets/fonts/Galmuri11/Galmuri11-Bold.woff2') format('woff2');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
 /* ═══════════════════════════════════
    ROOT & RESET — BLUE SKY THEME
    책임 : CSS 변수 정의 및 전역 기본 스타일 초기화

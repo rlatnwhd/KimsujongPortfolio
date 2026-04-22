@@ -22,10 +22,10 @@
       contrib: ['프론트 100%', '디자인 100%'],
       team: '개인',
       overview: [
-        'HTML, CSS 핵심 개념을 체계적으로 학습하고 정리한 학습용 웹사이트',
-        'html 기본 문법, 시맨틱 태그, CSS 레이아웃 직접 실습하며 제작',
-        '반응형 레이아웃 구조 설계 및 Flex/Grid 활용 연습',
-        'Flex, Grid, animation 등 프론트엔드 기초 기술 정리',
+        'HHTML5 · CSS3 핵심 개념을 주제별 카드 형태로 정리한 웹 프론트엔드 학습용 사이트',
+        '기본 문서태그, 이미지·하이퍼링크, 폼·표 만들기 등 HTML 필수 요소를 직접 실습하며 제작',
+        'CSS 기초, 시맨틱 태그, 선택자, 멀티미디어, 애니메이션 등 실무 핵심 CSS3 문법 학습 및 정리',
+        '각 주제를 독립 페이지로 구성하여 항목별 탐색이 가능한 반응형 구조로 설계',
       ],
       learned: 'HTML/CSS 기초를 탄탄히 다지며 웹 구조 설계 방식에 대한 감각을 키울 수 있었습니다.',
       liveUrl: 'https://rlatnwhd.github.io/Web-arrangement/',
@@ -46,16 +46,16 @@
         '중고 물품을 이용자로부터 대여하는 중고 대여 서비스',
         '사용자 인증, 물품 등록/검색, 대여 신청 흐름 구현',
         '직관적인 UX를 위해 컴포넌트 설계에 집중',
-        'Flutter 상태 관리 및 Firebase 연동 경험',
+        'Flutter 상태 관리 및 데이터베이스의 무결성 유지에 대한 이해 심화',
       ],
-      learned: '팀 협업 과정에서 코드 컨벤션과 역할 분담의 중요성을 배웠습니다.',
+      learned: '팀 협업 과정에서 코드 컨벤션과 역할 분담의 중요성을 배웠습니다. Flutter로 개발한 첫 앱이여서 디자인이 아쉽긴 하지만 많은 것을 배울 수 있었습니다.',
       liveUrl: null,
       githubUrl: 'https://github.com/Renty-Project-Team',
       imgBase: '../images/projects/billyeobeom',
     },
     {
       num: '03',
-      title: '에코 하우스',
+      title: '에코 호텔',
       themeBg: '#5a5a5a',
       themeText: '#ffffff',
       type: 'PC',
@@ -65,9 +65,9 @@
       team: '개인',
       overview: [
         'Unity를 활용하여 제작한 3D 스토리 공포게임',
-        '플레이어는 폐건물(호텔)에 갇힌 주인공이 되어 집 안을 탐험',
-        '퍼즐을 풀고 탈출하는 경험을 하게 됩니다',
-        'C# 스크립팅으로 게임 로직 전체 구현',
+        '플레이어는 폐건물(호텔)에 갇힌 주인공이 되어 호텔 안을 탐험하고 단서를 찾아 탈출',
+        '검물 안에 숨겨진 오브젝트를 찾아 상호작용 하고, 점프스퀘어를 이용해 공포 요소 연출',
+        'C# 스크립팅으로 게임 로직 전체 구현 및 AI를 활용한 스토리 구상',
       ],
       learned: 'Unity 엔진 구조와 게임 루프 설계 방식을 깊이 이해할 수 있었습니다.',
       liveUrl: null,
@@ -86,7 +86,7 @@
       team: '개인',
       overview: [
         'Canvas API를 활용해 제작한 멀티 게임 포털',
-        '숫자 야구, 지뢰찾기, 퀴즈, 슈팅 게임 등 다양한 게임 구현',
+        '숫자 야구, 박스 피하기, 서바이벌, 슈팅 게임 등 다양한 게임 구현',
         '순수 JavaScript로 로직과 렌더링 최적화',
         '반응형 레이아웃으로 모바일 환경 대응',
       ],
@@ -111,7 +111,7 @@
         '타입 안전성 강화와 협업 경험 축적',
         'UI/UX 설계 및 Figma 프로토타이핑 담당',
       ],
-      learned: '팀 내 소통과 역할 조율이 프로젝트 품질에 얼마나 큰 영향을 주는지 느꼈습니다.',
+      learned: '팀 내 소통과 역할 조율이 프로젝트 품질에 얼마나 큰 영향을 주는지 느꼈고, 디자인한 UI가 실제로 구현되고 결과를 보는 만족감이 특히 컸습니다.',
       liveUrl: null,
       githubUrl: 'https://github.com/Team-Storoo',
       imgBase: '../images/projects/storoo',
@@ -220,7 +220,7 @@
             '</div>' +
             '<div class="ps-learned">' +
               '<p class="ps-learned-head">What I Learned</p>' +
-              '<p>' + p.learned + '</p>' +
+              '<p class="ps-learned-text">' + p.learned + '</p>' +
             '</div>' +
           '</div>' +
         '</div>' +
