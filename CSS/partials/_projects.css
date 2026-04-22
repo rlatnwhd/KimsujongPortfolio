@@ -165,18 +165,20 @@
 .ps-main-img {
   width: 100%;
   height: 100%;
-  object-fit: cover;       /* 기본: 웹/게임 → 가로 채우기 */
+  object-fit: contain;     /* 이미지 전체 비율 유지, 잘림 없음 */
+  object-position: center;
   display: block;
   pointer-events: none;
 }
-/* 앱(모바일) 프로젝트 → 세로 채우기, 배경 없음 */
+/* 앱(모바일) 프로젝트 — 동일하게 contain (별도 override 불필요) */
 .ps-main-img-wrap.ps-img-app {
   background: transparent;
 }
 .ps-main-img-wrap.ps-img-app .ps-main-img {
-  width: auto;
+  width: 100%;
   height: 100%;
   object-fit: contain;
+  object-position: center;
 }
 .ps-main-img-wrap.ps-img-fallback {
   background: rgba(0,0,0,0.14);
@@ -214,7 +216,7 @@
   border-radius: 8px;
   overflow: hidden;
   background: rgba(255,255,255,0.08);
-  border: 1px solid rgba(255,255,255,0.15);
+  border: 1px solid rgba(89, 89, 89, 0.15);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -399,7 +401,7 @@
 .ps-learned-text {
   font-family: 'Galmuri11', 'Noto Sans KR', sans-serif;
   font-size: 15px;
-  color: #ffffff !important;
+  color: rgba(255,255,255,0.75) !important;
   line-height: 1.8;
   margin: 0;
 }
