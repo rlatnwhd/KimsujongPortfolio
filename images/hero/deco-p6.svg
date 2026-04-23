@@ -1,4 +1,15 @@
-<svg width="96" height="96" viewBox="0 0 96 96" fill="none" xmlns="http://www.w3.org/2000/svg">
-  <path d="M48 6 L90 48 L48 90 L6 48 Z" stroke="#3a9fd5" stroke-width="8" stroke-linecap="round" stroke-linejoin="round" fill="rgba(58,159,213,0.18)"/>
-  <path d="M22 48 L48 28 L74 48 L48 68 Z" stroke="white" stroke-width="5" stroke-linejoin="round" fill="rgba(255,255,255,0.14)"/>
+<svg width="96" height="80" viewBox="0 0 96 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- 터미널 >_ 프롬프트 창 -->
+  <!-- 창 외곽 -->
+  <rect x="4" y="4" width="88" height="72" rx="10" stroke="#3a9fd5" stroke-width="6" fill="rgba(58,159,213,0.08)"/>
+  <!-- 상단 타이틀 바 -->
+  <line x1="4" y1="26" x2="92" y2="26" stroke="#3a9fd5" stroke-width="4" opacity="0.55"/>
+  <!-- 닫기 버튼 점 3개 -->
+  <circle cx="18" cy="15" r="4" fill="#ffe066" opacity="0.85"/>
+  <circle cx="31" cy="15" r="4" fill="rgba(255,255,255,0.30)"/>
+  <circle cx="44" cy="15" r="4" fill="rgba(58,159,213,0.50)"/>
+  <!-- > 프롬프트 화살표 -->
+  <path d="M14 43 L26 52 L14 61" stroke="#ffe066" stroke-width="6" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+  <!-- _ 커서 (입력 라인) -->
+  <line x1="32" y1="61" x2="52" y2="61" stroke="white" stroke-width="5" stroke-linecap="round" opacity="0.75"/>
 </svg>
