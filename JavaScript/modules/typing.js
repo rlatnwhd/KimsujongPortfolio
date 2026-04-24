@@ -5,7 +5,7 @@
 (function initTyping() {
   const el = document.getElementById('typed-text');
   if (!el) return;
-  const words = ['Frontend Developer', 'UI / UX Enthusiast', 'React Developer', 'Creative Coder'];
+  const words = ['Frontend Developer', 'UI / UX Enthusiast', 'Application Developer', 'Creative Coder'];
   let wi = 0, ci = 0, del = false;
 
   function tick() {
