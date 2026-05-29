@@ -2,6 +2,7 @@
    RESPONSIVE
    책임 : 반응형 미디어 쿼리 (모바일 / 태블릿)
 ═══════════════════════════════════ */
+
 @media (max-width: 900px) {
   .about-grid { grid-template-columns: 1fr; }
   .hang-card { width: clamp(300px, 65vw, 550px); }
@@ -11,6 +12,9 @@
 }
 
 @media (max-width: 768px) {
+  /* 가로 스크롤 방지 — 모바일에서만 (sticky 파괴 방지) */
+  html, body { overflow-x: hidden; }
+
   section { padding: 90px 0 70px; }
   .nav-links {
     position: fixed; top: 96px; left: 0; right: 0;
@@ -35,13 +39,72 @@
 
   .edu-card { flex-direction: column; text-align: center; padding: 32px 28px; }
 
+  /* ── About: 세로 스택, 사진 컬럼 숨김 ── */
+  .about-layout { flex-direction: column !important; }
+  .about-photo-col { display: none !important; }
+  .about-content-col { width: 100% !important; }
+  .about-block p { font-size: 15px !important; line-height: 2 !important; word-break: keep-all; }
+  .about-player-header { font-size: clamp(24px, 8vw, 40px) !important; }
+
+  /* ── Education: 세로 스택 (.edu-layout 대상) ── */
+  .edu-layout { flex-direction: column !important; gap: 20px !important; max-width: 100% !important; }
+  .edu-logo-box { flex: none !important; width: 100% !important; max-width: 300px !important; margin: 0 auto !important; }
+  .edu-row { flex-wrap: wrap !important; gap: 6px !important; padding: 14px 0 !important; }
+  .edu-row-label { flex: 0 0 100% !important; }
+
+  /* ── Projects: 가로 스크롤 → 세로 카드 스택 ── */
+  #projects-pin { position: relative !important; height: auto !important; overflow: visible !important; }
+  #proj-cards { position: static !important; overflow: visible !important; height: auto !important; }
+  .proj-header { position: relative !important; width: 100% !important; }
+  .proj-slide {
+    position: relative !important;
+    clip-path: none !important;
+    width: 100% !important;
+    height: auto !important;
+    transform: none !important;
+    margin-bottom: 4px;
+  }
+  .ps-bg { display: none !important; }
+  .ps-frame {
+    position: static !important;
+    left: 0 !important;
+    width: 100% !important;
+    height: auto !important;
+    flex-direction: column !important;
+    transform: none !important;
+  }
+  .ps-img-area {
+    flex: none !important;
+    width: 100% !important;
+    padding: 20px !important;
+    height: auto !important;
+  }
+  .ps-main-img-wrap { flex: none !important; height: 200px !important; }
+  .ps-screen-section { flex: none !important; }
+  /* 버그1: 세로 스크린샷이 길게 늘어나는 현상 — 셀 높이 고정 */
+  .ps-screen-grid { height: auto !important; grid-template-rows: 80px 80px !important; }
+  .ps-screen-cell { height: 80px !important; min-height: 0 !important; overflow: hidden !important; }
+  .ps-screen-cell img { width: 100% !important; height: 100% !important; object-fit: cover !important; }
+  .ps-screen-cell.ps-cell-app img { width: auto !important; height: 100% !important; object-fit: contain !important; }
+  /* 버그3: What I Learned 텍스트 잘림 — overflow 해제 */
+  .ps-info-area {
+    padding: 20px !important;
+    height: auto !important;
+    overflow: visible !important;
+  }
+  .ps-info-area-inner { overflow-y: visible !important; height: auto !important; }
+  .ps-title { font-size: 26px !important; }
+  /* 버그2: spec-row 2+2+1 → 3+2 배치 */
+  .ps-spec-row { grid-template-columns: repeat(3, 1fr) !important; min-height: auto !important; }
+  .ps-btn-area { flex: none !important; }
+  .proj-bar-wrap { display: none; }
+
   /* Clothesline mobile */
   .hang-card { flex-direction: column; width: clamp(280px, 80vw, 500px); }
   .hc-visual { width: 100%; min-height: 180px; padding: 28px; }
   .hc-emoji { font-size: 48px; }
   .hc-info { padding: 24px 22px; gap: 12px; }
   .clothesline-rope { top: 110px; }
-  .proj-slide { padding-top: 50px; }
 
   .stats-row { padding: 28px 20px; gap: 16px; }
   .stat-num { font-size: 24px; }

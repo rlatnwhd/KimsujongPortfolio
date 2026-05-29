@@ -239,6 +239,9 @@
   }
   var allDots = dotsC ? dotsC.querySelectorAll('.pdot') : [];
 
+  /* ─ Mobile: 가로 스크롤 건너뜀 — CSS가 세로 레이아웃 처리 ─ */
+  if (window.innerWidth <= 768) return;
+
   /* ─ Zone height (vertical scroll space = proxy) ─ */
   function setZoneHeight() {
     zone.style.height = (N * 100) + 'vh';
@@ -342,6 +345,7 @@
 
   /* ─ Resize ─ */
   window.addEventListener('resize', function() {
+    if (window.innerWidth <= 768) { zone.style.height = 'auto'; return; }
     setZoneHeight();
     targetX  = Math.min(targetX, getMaxX());
     currentX = Math.min(currentX, getMaxX());

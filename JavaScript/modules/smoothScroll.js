@@ -6,6 +6,9 @@
 ───────────────────────────────────── */
 (function initGlobalSmoothScroll() {
 
+  /* 버그4: 모바일에서 스크롤 순간이동 — 모바일은 네이티브 스크롤 그대로 사용 */
+  if (window.innerWidth <= 768) return;
+
   var LERP     = 0.09;
   var targetY  = window.scrollY;
   var currentY = window.scrollY;
