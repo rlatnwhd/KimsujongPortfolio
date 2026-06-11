@@ -115,8 +115,27 @@
       liveUrl: null,
       githubUrl: 'https://github.com/Team-Storoo',
       imgBase: 'images/projects/storoo',
-    },
-  ];
+    },    {
+      num: '06',
+      title: '안전한가봄',
+      themeBg: '#E3E8FC',
+      themeText: '#111111',
+      type: 'PC, 모바일, 반응형',
+      service: '웹',
+      techs: ['React'],
+      contrib: ['프론트 100%', '디자인 100%'],
+      team: '개인',
+      overview: [
+        '공공데이터 기반으로 자취방이사 전 우리 동네 안전도를 분석해주는 웹 서비스',
+        '주소 입력 시 반경 1km 내 CCTV · 경찰서 수를 전국 평균과 비교해 안전 점수 산출',
+        '유흥업소 밀집도 · 범죄 발생 건수 기반 위험 요소 시각화 제공',
+        '편의점 · 병원 · 대형마트 등 편의시설 접근성 점수 제공',
+      ],
+      learned: 'React를 활용해 공공 API와 카카오 로컈 API를 직접 연동하며 비동기 데이터 처리와 지도 기반 시각화 구현 역량을 키웈습니다.',
+      liveUrl: 'https://safety-data-web.vercel.app/',
+      githubUrl: 'https://github.com/rlatnwhd/SafetyDataWeb',
+      imgBase: 'images/projects/safetydata',
+    },  ];
 
   /* ─ DOM ─ */
   const zone  = document.getElementById('projects-zone');
